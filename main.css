@@ -10,7 +10,7 @@ html, body {
 #primary-map {position:fixed; width:100%; height:100%; z-index:10;}
 header {
 	position:absolute; top:0px; width:100%; z-index:50; padding-top:12px;
-	background:rgba(0,0,0,0.5); color:white; text-align:center;
+	background:rgba(255,255,255,0.5); color:black; text-align:center;
 }
 header h1 {font-size:24px; line-height:1;}
 .years {margin-top:12px; display:flex;}
