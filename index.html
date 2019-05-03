@@ -4,11 +4,10 @@
 
 		<title>Carolina Cartography Collective</title>
 
-		<!-- jQuery -->
+		<!-- Fonts & Libraries -->
+		<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700" rel="stylesheet">
 		<script src="https://code.jquery.com/jquery-3.4.0.min.js"
 			integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
-
-		<!-- Leaflet includes -->
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
 			integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
 			crossorigin=""/>
@@ -25,17 +24,56 @@
 	</head>
 
 	<body>
-		<div class="container">
-			<header>
-				<h1>Carolina Cartography Collective</h1>
-				<p>Description goes here.</p>
-				<div class="years">
-					<div class="year" id="a">1937</div>
-					<div class="year" id="b">1977</div>
-					<div class="year" id="c">1983</div>
+
+		<!-- Header -->
+		<header class="text-section">
+			<h1>Carolina Cartography Collective</h1>
+			<div class="navigation">
+				<a href="#about">About</a>
+				<a href="#team">Team</a>
+			</div>
+		</header>
+
+		<!-- Projects -->
+		<div class="projects">
+			<div class="project section">
+				<div class="project-heading text-section">
+					<h2>Visualizing Vieques</h2>
+					<p><i>Visualizing Vieques</i> is the first project of the Collective. Our projects integrate the insights and methodologies from our various backgrounds, which include creative writing, geography, history, environmental science, art history, and urban planning. The interdisciplinary nature of this project is reflected in the variety of visualizations and projects that we are working on. Our maps incorporate themes of health, transportation, environmental change, land dispossession, and gentrification. Our next steps are to install a physical exhibit in Vieques and incorporate community feedback into our continued work.</p>
+					<p>Description of the map below should go here. <i>Hover over the years to view layers.</i></p>
 				</div>
-			</header>
-			<div id="primary-map"></div>
+				<div class="project-body">
+					<div class="years">
+						<div class="year" id="showLayer1937">1937</div>
+						<div class="year" id="showLayer1977">1977</div>
+						<div class="year" id="showLayer1983">1983</div>
+					</div>
+					<div id="primary-map" class="map"></div>
+				</div>
+			</div>
+			
 		</div>
+
+		<!-- About -->
+		<div class="text-section section" id="about">
+			<h2>About</h2>
+			<p>Working at the intersections of mapping, narrative, and human geography, the Carolina Cartography Collective draws from across disciplines to present new perspectives on spaces, places, and geographic difference. We welcome inquiries from students, scholars, artists, and activists across disciplines at <a href="mailto:jarce@live.unc.edu">jarce@live.unc.edu</a></p>
+		</div>
+		
+		<!-- Team -->
+		<div class="text-section section team" id="team">
+			<h2>Team</h2>
+			<p><b>Javier Arce Nazario</b> is an Associate Professor of Geography at UNC-Chapel Hill. His research has focused on the biophysical and social components of the Puerto Rican landscapes and how they affect water quality and adaptability to extreme precipitation events. He is interested in how historical orthophotography can be used as an outreach tool for education and community involvement in water quality and environmental concerns. Dr. Arce Nazario studied Ecology, Evolution and Environmental Biology at Columbia University, writing his dissertation on how humans and rivers shape the Peruvian Amazon landscape. Before joining the Geography department at UNC-Chapel Hill, he held a University of California President's Postdoctoral Fellow position at UC Berkeley and professorships at the University of Puerto Rico campuses at Utuado and Cayey.</p>
+			<p><b>Isabelle Smith</b> is a senior undergraduate student of Geography and Creative Writing at UNC-Chapel Hill. Isabelle comes from the mountains of western North Carolina and the farmlands of  upstate New York. She is interested in agriculture, political ecology, feminist geographies, and going swimming in North Carolina's lakes and rivers as much as possible.</p>
+			<p><b>Nicolas Scheffer</b> is an M.A./Ph.D. student in the department of Geography at UNC-Chapel Hill. His interests are broadly related to the political ecology of land tenure and degradation. His master's thesis research examines debates over land ownership and road development in Haiti in the context of the infrastructural legacies of the U.S. Occupation (1915-34). He conducts archival research on road construction during this period as part of a larger ethnographic work on everyday life and mobility in Port-au-Prince. </p>
+			<p><b>Aisling Henihan</b> is a graduating senior studying Art History, Geography, and Creative Writing at UNC-Chapel Hill. She is interested in landscapes of memory -- why, what, and how we remember.</p>
+			<p><b>Klaus Mayer</b> is a junior undergraduate student of Geography and History at UNC-Chapel Hill. He enjoys sitting on his porch and is interested in alternative economies in Colombia and using oral history for studying spatial history.</p>
+			<p><b>Ezra Rawitsch</b> is a senior undergraduate in Geography at UNC-Chapel Hill. He is interested in transitional urban political economies with a focus on post-Socialism, architecture and urban design, and geovisualization.</p>
+			<p><b>Tomas Roy</b> is a web developer from Waxhaw, NC who's curious about materialist philosophy, urban homelessness and radical forms of travel.</p>
+		</div>
+
+		<!-- Footer -->
+		<footer></footer>
+
 	</body>
 </html>
