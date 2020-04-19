@@ -17,6 +17,6 @@ before_deploy:
 deploy:
 - provider: script
   skip_cleanup: true
-  script: ./deploy-static.sh carolinacartography.org
+  script: ./deploy.sh carolinacartography.org
   on:
     branch: master
