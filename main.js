@@ -33,20 +33,24 @@ function initializePrimaryMap () {
 	}).addTo(primaryMap).bringToFront();
 
 	// Add layers
-	var layer1937 = L.tileLayer( 'https://cartocollective.blob.core.windows.net/vieques/1937/{z}/{x}/{y}.png',
-		{tms: true}
+	var layer1937 = L.tileLayer( 'https://cartocollective.blob.core.windows.net/vieques/v1937/{z}/{x}/{y}.png',
+		{tms: false}
 	).addTo(primaryMap).setOpacity(0);
-	var layer1977 = L.tileLayer( 'https://cartocollective.blob.core.windows.net/vieques/1977/{z}/{x}/{y}.png',
-		{tms: true}
+	var layer1977 = L.tileLayer( 'https://cartocollective.blob.core.windows.net/vieques/v1977/{z}/{x}/{y}.png',
+		{tms: false}
 	).addTo(primaryMap).setOpacity(0);
-	var layer1983 = L.tileLayer( 'https://cartocollective.blob.core.windows.net/vieques/1983/{z}/{x}/{y}.png',
-		{tms: true}
+	var layer1983 = L.tileLayer( 'https://cartocollective.blob.core.windows.net/vieques/v1983/{z}/{x}/{y}.png',
+		{tms: false}
+	).addTo(primaryMap).setOpacity(0);
+	var layer2009 = L.tileLayer( 'https://cartocollective.blob.core.windows.net/vieques/v2009/{z}/{x}/{y}.png',
+		{tms: false}
 	).addTo(primaryMap).setOpacity(0);
 
 	function hideLayers () {
 		layer1937.setOpacity(0);
 		layer1977.setOpacity(0);
 		layer1983.setOpacity(0);
+		layer2009.setOpacity(0);
 	}
 
 	// Setup layer hover effects
@@ -61,6 +65,10 @@ function initializePrimaryMap () {
 	$("#showLayer1983").mouseenter(function () {
 		hideLayers();
 		layer1983.setOpacity(1);
+	});
+	$("#showLayer2009").mouseenter(function () {
+		hideLayers();
+		layer2009.setOpacity(1);
 	});
 }
 
