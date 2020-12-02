@@ -1,0 +1,33 @@
+<?php include("header.php"); ?>
+
+<div class="section section-text lang-en">
+    <h2>About</h2>
+    <p>Working at the intersections of mapping, narrative, and human geography, the Carolina Cartography Collective draws from across disciplines to present new perspectives on spaces, places, and geographic difference. We welcome inquiries from students, scholars, artists, and activists across disciplines at <a href="mailto:jarce@live.unc.edu">jarce@live.unc.edu</a></p>
+</div>
+<div class="section section-text lang-es">
+    <h2>Sobre</h2>
+    <p>Trabajando en las intersecciones de la cartografía, narrativa, y geografía humana, el Colectivo Cartografía de Carolina se basa en diferentes disciplinas para presentar perspectivos nuevos sobre el espacio, los lugares, y las diferencias geográficas. Damos la bienvenida a estudiantes, escolares, artistas, y activistas entre todas las disciplinas a <a href="mailto:jarce@live.unc.edu">jarce@live.unc.edu</a></p>
+</div>
+
+<div class="section section-text lang-en">
+    <h2>Team</h2>
+    <p><b>Javier Arce Nazario</b> is an Associate Professor of Geography at UNC-Chapel Hill. His research has focused on the biophysical and social components of the Puerto Rican landscapes and how they affect water quality and adaptability to extreme precipitation events. He is interested in how historical orthophotography can be used as an outreach tool for education and community involvement in water quality and environmental concerns. Dr. Arce Nazario studied Ecology, Evolution and Environmental Biology at Columbia University, writing his dissertation on how humans and rivers shape the Peruvian Amazon landscape. Before joining the Geography department at UNC-Chapel Hill, he held a University of California President's Postdoctoral Fellow position at UC Berkeley and professorships at the University of Puerto Rico campuses at Utuado and Cayey.</p>
+    <p><b>Isabelle Smith</b> is a graduate of Geography at UNC-Chapel Hill. Isabelle comes from the mountains of western North Carolina and the farmlands of  upstate New York. She is interested in agriculture, political ecology, feminist geographies, and going swimming in North Carolina's lakes and rivers as much as possible.</p>
+    <p><b>Nicolas Scheffer</b> is a Ph.D. student in the department of Geography at UNC-Chapel Hill. His interests are broadly related to the political ecology of land tenure and degradation. His master's thesis research examines debates over land ownership and road development in Haiti in the context of the infrastructural legacies of the U.S. Occupation (1915-34). He conducts archival research on road construction during this period as part of a larger ethnographic work on everyday life and mobility in Port-au-Prince. </p>
+    <p><b>Aisling Henihan</b> is a graduating senior studying Art History, Geography, and Creative Writing at UNC-Chapel Hill. She is interested in landscapes of memory -- why, what, and how we remember.</p>
+    <p><b>Klaus Mayer</b> is a senior undergraduate student of Geography and History at UNC-Chapel Hill. He enjoys sitting on his porch and is interested in alternative economies in Colombia and using oral history for studying spatial history.</p>
+    <p><b>Ezra Rawitsch</b> is a senior undergraduate in Geography at UNC-Chapel Hill. He is interested in transitional urban political economies with a focus on post-Socialism, architecture and urban design, and geovisualization.</p>
+    <p><b>Tomas Roy</b> is a web developer from Waxhaw, NC who's curious about materialist philosophy, urban homelessness and radical forms of travel.</p>
+</div>
+<div class="section section-text lang-es">
+    <h2>Equipo</h2>
+    <p><b>Javier Arce Nazario</b> es un profesor asociado de geografía a UNC-Chapel Hill. Su investigación ha enfocado en los componentes biofísicos y sociales de los paisajes puertorriqueños y cómo han afectado la calidad del agua y la adaptabilidad a los eventos de precipitación extrema. Está interesado en cómo se puede usar la ortografía histórica como una herramienta para la educación y la participación de la comunidad en la calidad del agua y las preocupaciones ambientales. Dr. Arce Nazario estudió ecología, evolución, y biología ambiental en la Universidad de Columbia, escribiendo su tesis sobre cómo los humanos y los ríos dan forma al paisaje de la Amazonía peruana. Antes de su posición en UNC-Chapel Hill, tuvo el puesto de miembro postdoctoral de la Universidad de California a la Universidad de Berkeley y fue profesor en la Universidad de Puerto Rico en Utuado y Cayey.</p>
+    <p><b>Isabelle Smith</b> es un estudiante de grado en Geografía y escritura creativa en UNC-Chapel Hill. Isabelle viene de las montañas de Carolina del Norte y la tierra agrícola de Nueva York. Ella está interesada en la agricultura, ecología política, las geografías feministas y nadar lo más posible en los lagos y ríos de Carolina del Norte.</p>
+    <p><b>Nicolas Scheffer</b>) es un Ph.D estudiante en el departamento de Geografía a UNC-Chapel Hill. Sus intereses son ampliamente relacionados a la ecología política de la tenencia de tierra y la degradación. Su investigación de tesis examina a los debates sobre la posesión de tierra y el desarrollo de calles en Haití en el contexto de los legados infraestructurales de la ocupación de los Estados Unidos (1915-34). Él realiza investigaciones de archivo sobre la construcción de carreteras durante este periodo como parte de un proyecto etnográfico más grande sobre la vida cotidiana y la movilidad en Port-eu-Prince.</p>
+    <p><b>Aisling Henihan</b> acaba de graduarse de UNC-Chapel Hill con estudios en la geografía, la historia del arte, y la escritura creativa. Está interesada en los paisajes de memoria—porque, que, y como nos recordamos.
+    Klaus Mayer es un estudiante en su año tercero a UNC-Chapel Hill en la geografía y historia. Él disfruta sentándose en el porche y está interesado en las economías alternativas en Colombia y en usar historias orales para estudiar historia espacial.</p>
+    <p><b>Ezra Rawitsch</b> acaba de graduarse de UNC-Chapel Hill con estudio en geografía. Está interesado en las economías políticas, urbanas, y transicionales con un enfoque en el post-socialismo, la arquitectura, el diseño urbano, y geo-visualización.<p>
+    <p><b>Tomas Roy</b> es un desarrollador de web de Waxhaw, NC. Está interesado en la filosofía materialista, los que están sin hogar en los ciudades, y formas radicales de viaje.</p>
+</div>
+
+<?php include("footer.php"); ?>
