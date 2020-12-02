@@ -24,7 +24,10 @@ $PROJECT_ROOT = str_replace($_SERVER['DOCUMENT_ROOT'], "", dirname(__FILE__));
 
 	<body>
 		<header class="section-text">
-			<a href="<?= $PROJECT_ROOT ?>"><h1>Carolina Cartography Collective</h1></a>
+			<a href="<?php
+				if (empty($PROJECT_ROOT)) echo "/";
+				else echo $PROJECT_ROOT;
+			?>"><h1>Carolina Cartography Collective</h1></a>
 			<div class="navigation lang-en">
 				<a href="<?= $PROJECT_ROOT ?>/about.php">About</a>
 				<a href="#" class="switch-language" id="show-es">En Español</a>
