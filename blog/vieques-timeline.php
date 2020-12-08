@@ -62,7 +62,10 @@ $articleDescriptionES = "Este visualización ilustra Vieques en 1937, 1977, y 19
 		{tms: false}
 	).addTo(primaryMap).setOpacity(0);
 	var layer1983 = L.tileLayer( 'https://cartocollective.blob.core.windows.net/vieques/v1983/{z}/{x}/{y}.png',
-		{tms: false}
+		{
+			tms: false,
+			maxZoom: 24,
+		}
 	).addTo(primaryMap).setOpacity(0);
 	var layer2009 = L.tileLayer( 'https://cartocollective.blob.core.windows.net/vieques/v2009/{z}/{x}/{y}.png',
 		{tms: false}
