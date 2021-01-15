@@ -1,8 +1,8 @@
 <?php 
 
-$articleTitle = "Vieques: Navy bombing (in your backyard)";
+$articleTitle = "US Navy bombing if Vieques was your neighborhood";
 $articleDate = "January 2020";
-$articleDescription = "Description here";
+$articleDescription = "Visualize some of the bomb craters left in Vieques by the US Navy as if they'd been dropped in your backyard.";
 
 ?>
 
@@ -11,7 +11,8 @@ $articleDescription = "Description here";
 <div class="project craters section">
     <div class="project-heading section-text lang-en">
         <h2><?php echo $articleTitle ?></h2>
-        <p>Allow your browser to access your location, then click 'Bomb my backyard' below.</p>
+        <p>This map allows you visualize some of the craters left in Vieques by the US Navy as if they'd been dropped in your own back yard.</p>
+        <p>To see the visualization, please allow your browser to access your location, then click 'Bomb my backyard' below.</p>
         <div class="button" id="bomb">Finding your backyard...</div>
         <div class="button" id="back">Back to Vieques</div>
     </div>
@@ -30,10 +31,7 @@ $articleDescription = "Description here";
 
 <script type="text/javascript">
 
-    // To find center...
-    // primaryMap.on("mouseup", () => console.log(primaryMap.getCenter() + " / " + primaryMap.getZoom()))
-
-    // Initialize center
+    // Initialize Vieques region center
     let originalCenter = [18.137776, -65.298173];
 
     // Initialize map
@@ -41,43 +39,34 @@ $articleDescription = "Description here";
 		scrollWheelZoom: false
     })
 
-    // Initialize array of places
+    // Initialize state
     var places;
+    var bombsDropped = false;
 
+    // Helper functions
     var dropOnMyLocation = function (newCenter) {
-        // primaryMap.flyTo(newCenter)
         primaryMap.setView(newCenter, 16)
+        if (!bombsDropped) addPlacesToMap(places, newCenter)
+        bombsDropped = true;
     }
-
-    var backToVieques = function() {
-        primaryMap.setView(originalCenter, 16)
-    }
-
     var getLocation = function(callback) {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
-
                 var newCenter = [position.coords.latitude, position.coords.longitude]
                 var bombButton = $("#bomb")
-
                 bombButton.addClass("ready")
                 bombButton.text("Bomb my backyard")
                 bombButton.click(function() {
                     dropOnMyLocation(newCenter)
-                    addPlacesToMap(places, newCenter)
                 })
-
             });
         }
     }
-
-    // Function to load bomb outlines
-    var dropBombs = function() {
+    var getAndAddBombs = function() {
         $.ajax({
             type: "POST",
-            url: "http://localhost:3000/api/place.get",
+            url: "https://maps.carolinacartography.org/api/place.get",
             headers: {
-                'Access-Control-Allow-Origin': "*",
 				'Content-Type': "application/json",
             },
             data: JSON.stringify({
@@ -90,7 +79,6 @@ $articleDescription = "Description here";
             },
         })
     }
-
     var addPlacesToMap = function(places, offset) {
         for (var place of places) {
             var coordinates = place.location.coordinates
@@ -99,26 +87,11 @@ $articleDescription = "Description here";
             leafletPlace.addTo(primaryMap)
         }
     }
-
     var getRelativeCoordinatesForNewCenter = function (coordinates, newCenter) {
-
-        // Initialize
-        var originalCenterLat = originalCenter[0]
-        var originalCenterLng = originalCenter[1]
-        var newCenterLat = newCenter[0]
-        var newCenterLng = newCenter[1]
-        var originalLat = coordinates[0]
-        var originalLng = coordinates[1]
-
-        // Get offset
-        var latDiff = originalLat - originalCenterLat
-        var lngDiff = originalLng - originalCenterLng
-
-        // Get new lat and long
-        var newLat = newCenterLat + latDiff
-        var newLng = newCenterLng + lngDiff
-
-        return [newLat, newLng]
+        return [
+            newCenter[0] + (coordinates[0] - originalCenter[0]),
+            newCenter[1] + (coordinates[1] - originalCenter[1])
+        ]
     }
     
     // Add tile layer
@@ -130,14 +103,13 @@ $articleDescription = "Description here";
 	primaryMap.zoomControl.setPosition('bottomright')
     primaryMap.setView(originalCenter, 16)
     primaryMap.whenReady(function() {
-        dropBombs()
+        getAndAddBombs()
         getLocation()
     })
 
-    $(document).ready(function() {
-        $("#back").click(function () {
-            backToVieques()
-        })
+    // Setup back button
+    $("#back").click(function () {
+        primaryMap.setView(originalCenter, 16)
     })
 
 </script>
