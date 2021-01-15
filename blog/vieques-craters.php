@@ -1,6 +1,7 @@
 <?php 
 
-$articleTitle = "US Navy bombing if Vieques was your neighborhood";
+$sortKey = 1;
+$articleTitle = "US Navy bombing, if Vieques was your neighborhood";
 $articleDate = "January 2020";
 $articleDescription = "Visualize some of the bomb craters left in Vieques by the US Navy as if they'd been dropped in your backyard.";
 

@@ -1,5 +1,6 @@
 <?php 
 
+$sortKey = 0;
 $articleTitle = "Visualizing Vieques";
 $articleDate = "April 2019";
 $articleDescription = "This visualization shows Vieques in 1937, 1977, and 1983. We created each map using smaller aerial images that we processed using GIS to make into a full visualization of the island.";
