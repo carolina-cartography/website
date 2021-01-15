@@ -32,7 +32,7 @@ header a {text-decoration:none; color:inherit;}
 .navigation a:hover {
 	color:#333;
 }
-footer {margin-bottom:30px; padding-top:1px;}
+footer {padding-bottom:30px; padding-top:1px;}
 #primary-map {background:#000;}
 
 /* Control Styles */
