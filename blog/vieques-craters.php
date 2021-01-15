@@ -12,7 +12,7 @@ $articleDescription = "Visualize some of the bomb craters left in Vieques by the
 <div class="project craters section">
     <div class="project-heading section-text lang-en">
         <h2><?php echo $articleTitle ?></h2>
-        <p>This map allows you visualize some of the craters left in Vieques by the US Navy as if they'd been dropped in your own back yard.</p>
+        <p>The United States Navy <a href="https://en.wikipedia.org/wiki/United_States_Navy_in_Vieques,_Puerto_Rico">conducted training excersizes</a> in Vieques, Puerto Rico beginning in 1941. This map allows you visualize some of the bomb craters left in Vieques by the Navy as if the bombs had been dropped in your own backyard.</p>
         <p>To see the visualization, please allow your browser to access your location, then click 'Bomb my backyard' below.</p>
         <div class="button" id="bomb">Finding your backyard...</div>
         <div class="button" id="back">Back to Vieques</div>
