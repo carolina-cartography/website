@@ -5,6 +5,10 @@ $articleTitle = "US Navy bombing, if Vieques was your neighborhood";
 $articleDate = "January 2020";
 $articleDescription = "Visualize some of the bomb craters left in Vieques by the US Navy as if they'd been dropped in your backyard.";
 
+$articleTitleES = null;
+$articleDateES = null;
+$articleDescriptionES = null;
+
 ?>
 
 <?php include("../header.php"); ?>
