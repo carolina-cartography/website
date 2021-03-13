@@ -40,7 +40,8 @@ $articleDescriptionES = "Este visualización ilustra Vieques en 1937, 1977, y 19
 <script type="text/javascript">
 
 	// Initialize map
-	var primaryMap = L.map('primary-map', {
+	var primaryMap = L.map('primary-map', { 
+		attributionControl:false,  
 		scrollWheelZoom: false
 	});
 
