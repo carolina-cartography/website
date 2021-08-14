@@ -1,7 +1,7 @@
 # Adapted from https://wiki.alpinelinux.org/wiki/Nginx_with_PHP
 FROM alpine
 
-RUN apk add supervisor nginx php7 php7-fpm php7-opcache
+RUN apk add nginx php7 php7-fpm php7-opcache
 COPY ./nginx.conf /etc/nginx/nginx.conf
 RUN adduser -D -g 'www' www && \
     mkdir /www && \
