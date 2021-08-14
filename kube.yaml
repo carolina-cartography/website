@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: carolina-cartography
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: carolina-cartography
+  template:
+    metadata:
+      labels:
+        app: carolina-cartography
+    spec:
+      containers:
+      - name: main
+        image: $IMAGE
+        ports:
+        - containerPort: 80
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: carolina-cartography
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: carolina-cartography
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: carolina-cartography-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+spec:
+  tls:
+  - hosts:
+    - carolinacartography.org
+    - www.carolinacartography.org
+    secretName: carolina-cartography-tls-cert
+  rules:
+  - host: carolinacartography.org
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: carolina-cartography
+            port:
+              number: 3002
