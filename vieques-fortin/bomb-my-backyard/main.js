@@ -51,7 +51,7 @@ function loadOutline() {
 				boundary.addData(data);
 			});
 		}
-	}).error(function() {});
+	})
 }
 
 function initializeAddressFinder() {
