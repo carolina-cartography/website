@@ -8,7 +8,7 @@
 
 <html>
     <head>
-        <title>Visualizing Vieques: Bomb my Backyard</title>
+        <title>Visualizando Vieques: Bombardea mi patio</title>
 
         <!-- jQuery -->
         <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
