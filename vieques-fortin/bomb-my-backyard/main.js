@@ -48,6 +48,7 @@ function loadOutline() {
 		url: "outline.geojson",
 		success: function(data) {
 			$(data.features).each(function(key, data) {
+				console.log(data)
 				boundary.addData(data);
 			});
 		}

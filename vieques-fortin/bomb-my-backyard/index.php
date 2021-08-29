@@ -1,3 +1,11 @@
+<?php 
+    // By default, key is set to domain-restricted API production API key
+    $google_api_key = "AIzaSyBmiPKIXenHNGBis-EAC4oWsgRMED-Krag";
+    if ($_SERVER['HTTP_HOST'] == "localhost") {
+        $google_api_key = getenv("HTTP_LOCAL_GOOGLE_API_KEY");
+    }
+?>
+
 <html>
     <head>
         <title>Visualizing Vieques: Bomb my Backyard</title>
@@ -10,7 +18,7 @@
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
         <!-- Google Places API -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmiPKIXenHNGBis-EAC4oWsgRMED-Krag&libraries=places"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $google_api_key; ?>&libraries=places"></script>
 
         <!-- Local Imports -->
         <link rel="stylesheet" href="main.css" />
