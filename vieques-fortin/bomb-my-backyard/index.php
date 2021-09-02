@@ -8,7 +8,7 @@
 
 <html>
     <head>
-        <title>Visualizando Vieques: Bombardea mi patio</title>
+        <title></title>
 
         <!-- jQuery -->
         <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
@@ -28,8 +28,19 @@
         <div class="container">
             <div id="leaflet"></div>
             <div class="control">
-                <span class="title">Bombardea mi patio / Bomb my backyard</span>
-                <input type="text" id="address-input" placeholder="Ingrese su direccion / enter your address..."/>
+                <div id="header" class="column"></div>
+                <input type="text" id="address-input" class="column" />
+                <div class="controls">
+                    <div id="translate">
+                        <label class="switch">
+                            <input id="language-switch" type="checkbox" /><span class="slider"></span>
+                        </label>
+                        <span id="en" class="name"></span>
+                        <span id="es" class="name"></span>
+                        <div class="clear"></div>
+                    </div>
+                    <div id="reset" class="column"></div>
+                </div>
             </div>
             <div id="query"></div>
         </div>

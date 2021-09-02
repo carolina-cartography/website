@@ -1,18 +1,90 @@
 
 // Initialize constants
 const CENTER = [18.14, -65.43]
+const ZOOM = 12
 const FORTIN = [18.147407888387857, -65.43913891363856]
-const SHOW_VIEQUES_OUTLINE = false
+const SHOW_VIEQUES_OUTLINE = true
+const LANGUAGE = {
+	es: {
+		lang: "Espa&ntilde;ol",
+		title: "&iexcl;Bombardea mi patio!",
+		input: "Ingrese su direccion...",
+		marker: "Est&aacute;s aqu&iacute; (El Fort&iacute;n Conde de Mirasol)",
+		address: "Su direccion, como El Fort&iacute;n",
+		reset: "De nuevo"
+	},
+	en: {
+		lang: "English",
+		title: "Bomb my backyard!",
+		input: "Enter your address...",
+		marker: "You are here (El Fort&iacute;n Conde de Mirasol)",
+		address: "Your address, as El Fort&iacute;n",
+		reset: "Reset"
+	}
+}
 
 // Initialize variables
-let map
-let outlineData
+let map, language, fortinMarker, newFortinMarker, outlineData, outline, newOutline
 
 $(document).ready(() => {
-    initializeLeaftlet()
+	initializeReset()
+	initializeLanguage()
+	initializeLeaftlet()
 	initializeAddressFinder()
 	loadOutline()
 })
+
+function setLanguage() {
+	$("#en").html(LANGUAGE.en.lang)
+	$("#es").html(LANGUAGE.es.lang)
+	$("title").html(LANGUAGE[language].title)
+	$("#header").html(LANGUAGE[language].title)
+	$("#address-input").attr("placeholder", LANGUAGE[language].input)
+	$("#reset").html(LANGUAGE[language].reset)
+	if (fortinMarker !== undefined) {
+		fortinMarker.setTooltipContent(LANGUAGE[language].marker)
+	}
+	if (newFortinMarker !== undefined) {
+		newFortinMarker.setTooltipContent(LANGUAGE[language].address)
+	}
+}
+
+function initializeLanguage() {
+	language = "en"
+	setLanguage()
+	$("#language-switch").change(function() {
+		console.log(language)
+		if (language == "en") language = "es"
+		else language = "en"
+		setLanguage()
+	})
+}
+
+function initializeReset() {
+	$("#reset").click(function() {
+		center()
+		reset()
+		clear()
+	})
+}
+
+function center() {
+	// Position map for Vieques, centered on Fortin
+	map.setView(CENTER, ZOOM)
+}
+
+function clear() {
+	$("#address-input").val("")
+}
+
+function reset() {
+	if (newFortinMarker !== undefined) {
+		map.removeLayer(newFortinMarker)
+	}
+	if (newOutline !== undefined) {
+		map.removeLayer(newOutline)
+	}
+}
 
 function initializeLeaftlet() {
 
@@ -30,15 +102,15 @@ function initializeLeaftlet() {
 	// Position zoom controls
 	map.zoomControl.setPosition('bottomright')
 
-	// Position map for Vieques, centered on Fortin
-	map.setView(CENTER, 12)
-
     // Add marker to Fortin
-    const fortinMarker = L.marker(FORTIN).addTo(map)
-	fortinMarker.bindTooltip("Museo El Fort&iacute;n", {
+    fortinMarker = L.marker(FORTIN).addTo(map)
+	fortinMarker.bindTooltip(LANGUAGE[language].marker, {
 		direction: 'auto',
 		permanent: true,
 	}).openTooltip()
+
+	// Default center
+	center()
 }
 
 function loadOutline() {
@@ -53,7 +125,7 @@ function loadOutline() {
 
 				// Add Vieques outline to map
 				if (SHOW_VIEQUES_OUTLINE) {
-					const outline = getNewGeoJSONBounday(data)
+					outline = getNewGeoJSONBounday(data)
 					outline.addTo(map)
 				}
 			})
@@ -83,6 +155,9 @@ function getNewGeoJSONBounday(data) {
 
 function handleAddressChange(place) {
 
+	// Clear last marker and outline
+	reset()
+
 	// Handle non-existent place input
 	if (!place.geometry || !place.geometry.location) {
 		window.alert("No details available for input: '" + place.name + "'")
@@ -93,24 +168,23 @@ function handleAddressChange(place) {
 	const newFortinCoords = [place.geometry.location.lat(), place.geometry.location.lng()]
 
 	// Get new center
-	// TODO: This isn't working yet, figure this out
-	// const newCenter = getRelativeCoordinatesForNewPoint(newFortinCoords, FORTIN, CENTER)
+	const newCenter = getRelativeCoordinatesForNewPoint(newFortinCoords, CENTER, FORTIN)
 
 	// Trace new outline on map
 	let newOutlineData = JSON.parse(JSON.stringify(outlineData))
 	shiftGeoJSONPolygonDataForNewPoint(newOutlineData.geometry.coordinates, newFortinCoords)
-	const newOutline = getNewGeoJSONBounday(newOutlineData)
+	newOutline = getNewGeoJSONBounday(newOutlineData)
 	newOutline.addTo(map)
 
 	// Add pointer to map
-	const newFortinMarker = L.marker(newFortinCoords).addTo(map)
-	newFortinMarker.bindTooltip("Su casa, como Museo El Fort&iacute;n", {
+	newFortinMarker = L.marker(newFortinCoords).addTo(map)
+	newFortinMarker.bindTooltip(LANGUAGE[language].address, {
 		direction: 'auto',
 		permanent: true,
 	}).openTooltip()
 
 	// Fly to 'new Fortin'
-	map.flyTo(newFortinCoords)
+	map.setView(newCenter, ZOOM)
 }
 
 function shiftGeoJSONPolygonDataForNewPoint(polygonArray, newPoint) {
