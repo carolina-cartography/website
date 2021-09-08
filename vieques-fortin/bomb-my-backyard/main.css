@@ -48,7 +48,10 @@ h1 {font-size:24px;}
     float:right; text-align:right;
 }
 .control #reset {
-    background:#f5f5f5; color:#a81407; cursor:pointer; text-align:center; min-width:80px; font-weight:700;
+    background:#f5f5f5; color:#999; text-align:center; min-width:80px; font-weight:700;
+}
+.control #reset.active {
+    background:#a81407; color:white; cursor:pointer;
 }
 .control #about-button {
     display:inline-block; margin-right:25px; cursor:pointer;

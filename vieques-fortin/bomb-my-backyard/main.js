@@ -105,6 +105,11 @@ function reset() {
 	if (newOutline !== undefined) {
 		map.removeLayer(newOutline)
 	}
+
+	newFortinMarker = undefined
+	newOutline = undefined
+
+	$("#reset").removeClass("active")
 }
 
 function initializeLeaftlet() {
@@ -184,6 +189,9 @@ function handleAddressChange(place) {
 		window.alert("No details available for input: '" + place.name + "'")
 		return;
 	}
+
+	// Setup reset button
+	$("#reset").addClass("active")
 
 	// Get coordinates
 	const newFortinCoords = [place.geometry.location.lat(), place.geometry.location.lng()]
