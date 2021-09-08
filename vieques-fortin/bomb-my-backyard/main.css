@@ -59,7 +59,7 @@ h1 {font-size:24px;}
 .control #translate {
     display:inline-block; margin-right:25px; vertical-align:middle;
 }
-#translate .name {line-height:24px; text-transform:uppercase; font-weight:300; color:#666; font-size:14px;}
+#translate .name {line-height:24px; text-transform:uppercase; font-weight:300; font-size:14px;}
 #translate .name:first-of-type {float:left; margin-right:8px;}
 #translate .name:nth-of-type(2) {float:right; margin-left:8px;}
 .switch {position:relative; display:inline-block; width:41px; height:24px;}

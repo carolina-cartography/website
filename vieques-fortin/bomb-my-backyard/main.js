@@ -3,7 +3,8 @@
 const CENTER = [18.14, -65.43]
 const ZOOM = 12
 const FORTIN = [18.147407888387857, -65.43913891363856]
-const SHOW_VIEQUES_OUTLINE = true
+const SHOW_VIEQUES_OUTLINE = false
+const SHOW_VIEQUES_OUTLINE_NAVY = false
 const LANGUAGE = {
 	es: {
 		lang: "Espa&ntilde;ol",
@@ -33,6 +34,7 @@ const LANGUAGE = {
 
 // Initialize variables
 let map, language, fortinMarker, newFortinMarker, outlineData, outline, newOutline
+let outlineNavyData, outlineNavy, newOutlineNavy
 
 $(document).ready(() => {
 	initializeLanguage()
@@ -151,8 +153,25 @@ function loadOutline() {
 
 				// Add Vieques outline to map
 				if (SHOW_VIEQUES_OUTLINE) {
-					outline = getNewGeoJSONBounday(data)
+					outline = getNewGeoJSONBounday(data, true)
 					outline.addTo(map)
+				}
+			})
+		}
+	})
+	$.ajax({
+		dataType: "json",
+		url: "navy.geojson",
+		success: function(data) {
+			$(data.features).each(function(key, data) {
+
+				// Save outline data to global scope
+				outlineNavyData = data
+
+				// Add Vieques outline to map
+				if (SHOW_VIEQUES_OUTLINE_NAVY) {
+					outlineNavy = getNewGeoJSONBounday(data)
+					outlineNavy.addTo(map)
 				}
 			})
 		}
@@ -170,13 +189,21 @@ function initializeAddressFinder() {
 	});
 }
 
-function getNewGeoJSONBounday(data) {
-	return new L.geoJson(data, {
-		style: {
+function getNewGeoJSONBounday(data, subtle) {
+	let style = {
+		fill: true,
+		fillColor: '#a81407',
+		fillOpacity: 0.3,
+		color: '#a81407'
+	}
+	if (subtle === true) {
+		style = {
 			fillOpacity: 0,
-			color: '#3388ff'
+			opacity: 0.4,
+			color: '#333333'
 		}
-	})
+	}
+	return new L.geoJson(data, style)
 }
 
 function handleAddressChange(place) {
@@ -202,8 +229,14 @@ function handleAddressChange(place) {
 	// Trace new outline on map
 	let newOutlineData = JSON.parse(JSON.stringify(outlineData))
 	shiftGeoJSONPolygonDataForNewPoint(newOutlineData.geometry.coordinates, newFortinCoords)
-	newOutline = getNewGeoJSONBounday(newOutlineData)
+	newOutline = getNewGeoJSONBounday(newOutlineData, true)
 	newOutline.addTo(map)
+
+	// Trace new outline on map
+	let newOutlineNavyData = JSON.parse(JSON.stringify(outlineNavyData))
+	shiftGeoJSONPolygonDataForNewPoint(newOutlineNavyData.geometry.coordinates, newFortinCoords)
+	newOutlineNavy = getNewGeoJSONBounday(newOutlineNavyData)
+	newOutlineNavy.addTo(map)
 
 	// Add pointer to map
 	newFortinMarker = L.marker(newFortinCoords).addTo(map)
