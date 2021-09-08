@@ -11,7 +11,11 @@ const LANGUAGE = {
 		input: "Ingrese su direccion...",
 		marker: "Est&aacute;s aqu&iacute; (El Fort&iacute;n Conde de Mirasol)",
 		address: "Su direccion, como El Fort&iacute;n",
-		reset: "De nuevo"
+		reset: "De nuevo",
+		about: {
+			title: "Sobre",
+			content:  "Explanation here",
+		}
 	},
 	en: {
 		lang: "English",
@@ -19,7 +23,11 @@ const LANGUAGE = {
 		input: "Enter your address...",
 		marker: "You are here (El Fort&iacute;n Conde de Mirasol)",
 		address: "Your address, as El Fort&iacute;n",
-		reset: "Reset"
+		reset: "Reset",
+		about: {
+			title: "About",
+			content: "Explanation here",
+		}
 	}
 }
 
@@ -27,8 +35,9 @@ const LANGUAGE = {
 let map, language, fortinMarker, newFortinMarker, outlineData, outline, newOutline
 
 $(document).ready(() => {
-	initializeReset()
 	initializeLanguage()
+	initializeReset()
+	initializeAbout()
 	initializeLeaftlet()
 	initializeAddressFinder()
 	loadOutline()
@@ -41,6 +50,9 @@ function setLanguage() {
 	$("#header").html(LANGUAGE[language].title)
 	$("#address-input").attr("placeholder", LANGUAGE[language].input)
 	$("#reset").html(LANGUAGE[language].reset)
+	$("#about-button").html(LANGUAGE[language].about.title)
+	$("#about-title").html(LANGUAGE[language].about.title)
+	$("#about-content").html(LANGUAGE[language].about.content)
 	if (fortinMarker !== undefined) {
 		fortinMarker.setTooltipContent(LANGUAGE[language].marker)
 	}
@@ -65,6 +77,15 @@ function initializeReset() {
 		center()
 		reset()
 		clear()
+	})
+}
+
+function initializeAbout() {
+	$("#about-button").click(function () {
+		$("#about").addClass("visible")
+	})
+	$("#about-underlay").click(function() {
+		$("#about").removeClass("visible")
 	})
 }
 
