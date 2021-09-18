@@ -56,5 +56,10 @@
                 <div id="about-content"></div>
             </div>
         </div>
+        <div id="walkthrough">
+            <div id="walkthrough-step" class="element"></div>
+            <div id="walkthrough-prev" class="element button"></div>
+            <div id="walkthrough-next" class="element button next"></div>
+        </div>
     </body>
 </html>
