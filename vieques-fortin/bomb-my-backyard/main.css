@@ -39,7 +39,7 @@ div {box-sizing:border-box;}
     background:white; box-shadow:0px 0px 6px rgba(0,0,0,0.4);
 }
 .control .column {
-    display:inline-block; padding:0px 20px; line-height:54px;
+    display:inline-block; padding:0px 20px; line-height:64px;
 }
 .control #header {
     background:#333; color:white; font-size:18px; font-weight:bold;

@@ -43,7 +43,9 @@ const LANGUAGE = {
 }
 
 const ISLAND_STYLE = {
-	fillOpacity: 0,
+	fill: true,
+	fillColor: '#333333',
+	fillOpacity: 0.2,
 	opacity: 0.8,
 	color: '#333333'
 }
