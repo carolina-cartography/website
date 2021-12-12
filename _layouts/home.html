@@ -13,7 +13,8 @@
                 {% if project.locale == locale.locale_id %}
                 <a href="{{ project.url }}">
                     <div class="project-item">
-                        <h3>{{ project.title }}</h3>
+                        <div class="bg" style="background-image:url('/assets/{{ project.background }}')"></div>
+                        <div class="over-bg"><h2>{{ project.title }}</h2></div>
                     </div>
                 </a>
                 {% endif %}

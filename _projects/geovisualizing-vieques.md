@@ -3,19 +3,25 @@ title: Geovisualizing Vieques
 locale: en-US
 permalink: "/geovisualizing-vieques/"
 layout: project
-
-description: A description of the project goes here.
-sections:
-  - title: Displacement
-    description: A description about displacement goes here.
-    links:
-    photos:
-  - title: Militarization
-    description: A description about militarization goes here.
-    links:
-    photos:
-  - title: Transportation
-    description: A description about transportation goes here.
-    links:
-    photos:
+background: vieques/vieques-bg.png
+description: Here's a description of this project
+gallery:
+  - url: vieques/vieques1.jpg
+    caption: Sample caption
+  - url: vieques/vieques2.jpg
+  - url: vieques/vieques3.jpg
+  - url: vieques/vieques4.jpg
+  - url: vieques/vieques5.png
+  - url: vieques/vieques6.png
 ---
+
+Here's a small note about the exhibit opening in El Fortín on Sunday, December 19th.
+
+## Displacement
+Here's a description of displacement
+
+## Militarization
+Here's a description of militarization
+
+## Transportation
+Here's a description of transportation

@@ -12,5 +12,5 @@ team:
     - "**Isabelle Smith** is a graduate of Geography at UNC-Chapel Hill. Isabelle comes from the mountains of western North Carolina and the farmlands of upstate New York. She is interested in agriculture, political ecology, feminist geographies, and going swimming in North Carolina's lakes and rivers as much as possible."
     - "**Klaus Mayer** is a senior undergraduate student of Geography and History at UNC-Chapel Hill. He enjoys sitting on his porch and is interested in alternative economies in Colombia and using oral history for studying spatial history."
     - "**Ezra Rawitsch** is a senior undergraduate in Geography at UNC-Chapel Hill. He is interested in transitional urban political economies with a focus on post-Socialism, architecture and urban design, and geovisualization."
-    - "**Tomas Roy** is a carpenter and programmer living in New Orleans, LA. He's interested in affordable housing, materialist philosophy, anarchism, and radical forms of travel."
+    - "**Tomas Roy** is a carpenter and programmer living in New Orleans. He's interested in affordable housing, materialist philosophy, anarchism, and radical forms of travel."
 ---
