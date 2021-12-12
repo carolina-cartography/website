@@ -1,3 +1,6 @@
+language: ruby
+rvm:
+- 2.6.3
 os: linux
 dist: focals
 
@@ -15,6 +18,8 @@ install:
 - sudo snap install kubectl --classic
 
 script:
+- bundle install
+- bundle exec jekyll build
 - docker build -t "$IMAGE:$TRAVIS_BUILD_NUMBER" .
 
 before_deploy:

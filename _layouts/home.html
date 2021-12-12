@@ -1,0 +1,33 @@
+{% include header.html %}
+
+    <div class="section about">
+        <div class="container">
+            {{ page.about | markdownify }}
+        </div>
+    </div>
+
+    <div class="section projects">
+        <div class="container wide">
+            <h2>{{ locale.projects }}</h2>
+            {% for project in site.projects %}
+                {% if project.locale == locale.locale_id %}
+                <a href="{{ project.url }}">
+                    <div class="project-item">
+                        <h3>{{ project.title }}</h3>
+                    </div>
+                </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="section team">
+        <div class="container">
+            <h2>{{ page.team.title }}</h2>
+            {% for member in page.team.members %}
+                {{ member | markdownify }}
+            {% endfor %}
+        </div>
+    </div>
+
+{% include footer.html %}

@@ -1,0 +1,14 @@
+---
+title: Carolina Cartography Collective
+timezone: America/New_York
+collections:
+  projects:
+    title: Projects
+    output: true
+sass:
+  style: compressed
+localization:
+  mode: manual
+  locale: en-US
+  content_dir: _locales
+  locales_set: ["en-US", "es"]

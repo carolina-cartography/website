@@ -1,0 +1,23 @@
+{% include header.html %}
+
+    <div class="section intro">
+        <div class="container">
+            <h1>{{ page.title }}</h1>
+            {{ page.description | markdownify }}
+        </div>
+    </div>
+
+    <div class="section project-sections">
+        <div class="container">
+        {% for section in page.sections %}
+            <div class="project-section">
+                <h2>{{ section.title }}</h2>
+                {{ section.description | markdownify }}
+                {% for link in section.links %}<a href="{{ link.url }}"></a>{% endfor %}
+                {% for photo in section.photos %}<img src="{{ photo.url }}" />{% endfor %}
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    
+{% include footer.html %}

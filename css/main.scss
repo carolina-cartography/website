@@ -1,0 +1,58 @@
+---
+---
+
+// Resets
+* {box-sizing:border-box;}
+html, body {margin:0px; padding:0px;}
+
+// Fonts
+body {font-family:'Source Sans Pro', sans-serif; font-size:18px; line-height:1.4; color:#333;}
+h1, h2, h3 {font-family:'Libre Baskerville', serif; margin:0px;}
+h1 {font-size:28px;}
+h2 {font-size:24px;}
+h3 {font-size:20px;}
+a {text-decoration:none; color:inherit; border-bottom:1px solid #333;}
+
+// Site Layout
+.locale-switch {position:absolute; display:block; top:15px; left:15px;}
+.section {padding:50px 0px;}
+.container {
+	max-width:780px; margin:0px auto; padding:0px 30px;
+	&.wide {max-width:1000px;}
+}
+header, footer {
+	padding:30px 0px;
+	text-align:center;
+}
+header {
+	a {border:0px;}
+	.logo {height:80px; margin-bottom:10px;}
+}
+footer {
+	font-family:'Inconsolata', monospace;
+}
+
+// Page Styles
+body.home {
+	.section.about {background:#f1f1f1;}
+	.section.team {background:#99badd; color:white;}
+	.section.projects {
+		text-align:center;
+		.project-item {
+			display:flex; justify-content:center; align-items:center; margin-top:30px;
+			padding:30px; min-height:300px; background-color:#333; color:white;
+		}
+	}
+}
+
+body.project {
+	header {
+		.logo, h1 {display:inline-block; vertical-align:middle;}
+		.logo {height:40px; margin-bottom:0px;}
+		h1 {line-height:40px; font-size:20px; margin-left:15px;}
+	}
+	.section.intro {
+		text-align:center;
+		h1 {font-size:32px;}
+	}
+}

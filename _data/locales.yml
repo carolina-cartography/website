@@ -1,0 +1,14 @@
+en-US:
+  locale_id: en-US
+  footer_text: Thanks for visiting! Email us at [hello@carolinacartography.org](mailto:hello@carolinacartography.org)
+  projects: Projects
+  home_url: "/"
+  locale_switch_text: En Español
+  locale_switch_url: "/es"
+es:
+  locale_id: es
+  footer_text: Gracias por su visita. Envíanos un email a [hello@carolinacartography.org](mailto:hello@carolinacartography.org)
+  projects: Proyectos
+  home_url: "/es"
+  locale_switch_text: In English
+  locale_switch_url: ""
