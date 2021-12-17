@@ -5,7 +5,11 @@
         <div class="gradient-bg"></div>
         <div class="container over-bg">
             <h1>{{ page.title }}</h1>
-            {{ page.description | markdownify }}
+            {% if page.description %}
+            <div class="description">
+                {{ page.description | markdownify }}
+            </div>
+            {% endif %}
         </div>
     </div>
 

@@ -52,6 +52,10 @@ a {text-decoration:none; color:inherit;}
 	background:#333; color:white;
 	.content a {border-bottom:1px solid white;}
 }
+.description {
+	font-family:"Inconsolata", monospace;
+	p {margin-bottom:0px;}
+}
 
 // Site Layout
 header, footer {text-align:center;}
@@ -75,7 +79,7 @@ body.home {
 		.project-item {
 			position:relative; display:flex; justify-content:center; align-items:center; margin-top:30px;
 			padding:30px; min-height:300px; background-color:#333; color:white;
-			.bg {opacity:0.6;}
+			.bg {opacity:0.4;}
 		}
 	}
 }

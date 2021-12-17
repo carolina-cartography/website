@@ -1,7 +1,7 @@
 {% include header.html %}
 
     <div class="section about">
-        <div class="container">
+        <div class="container content">
             {{ page.about | markdownify }}
         </div>
     </div>
@@ -14,7 +14,14 @@
                 <a href="{{ project.url }}">
                     <div class="project-item">
                         <div class="bg" style="background-image:url('/assets/{{ project.background }}')"></div>
-                        <div class="over-bg"><h2>{{ project.title }}</h2></div>
+                        <div class="over-bg">
+                            <h2>{{ project.title }}</h2>
+                            {% if project.description %}
+                            <div class="description">
+                                {{ project.description | markdownify }}
+                            </div>
+                            {% endif %}
+                        </div>
                     </div>
                 </a>
                 {% endif %}
