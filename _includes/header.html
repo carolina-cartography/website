@@ -2,6 +2,15 @@
 <html>
 	<head>
 
+		<!-- Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-XQKSGHSPK0"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-XQKSGHSPK0');
+		</script>
+
 		<!-- META Information -->
 		<title>{% if page.layout != 'home' %}{{ page.title }} ~ {% endif %}{{ site.title }}</title>
 		<meta charset="utf-8">
@@ -25,15 +34,6 @@
 		<script src="https://unpkg.com/justifiedGallery@3/dist/js/jquery.justifiedGallery.min.js"></script>
 		<link rel="stylesheet" href="https://unpkg.com/lightbox2@2.11.3/dist/css/lightbox.min.css" />
 		<script src="https://unpkg.com/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
-
-		<!-- Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-XQKSGHSPK0"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'G-XQKSGHSPK0');
-		</script>
 
 	</head>
 	<body class="{{ page.layout }}">
