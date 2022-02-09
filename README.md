@@ -4,9 +4,11 @@ Built with [Jekyll](https://jekyllrb.com/)
 
 ## Setup for local development
 
-1. Setup Ruby
+1. Setup Ruby 2.7 using RVM
 ```
-brew install ruby@2.7
+curl -sSL https://get.rvm.io | bash -s stable
+rvm install 2.7
+rvm use 2.7
 ```
 
 2. Setup Jekyll and Bundler
