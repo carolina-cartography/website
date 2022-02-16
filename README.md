@@ -26,3 +26,6 @@ Run the following command from the repository directory to run Jekyll in develop
 ```
 bundle exec jekyll serve
 ```
+
+## References
+[Liquid](https://shopify.github.io/liquid/basics/introduction/) is the templating language which allows us to use variables from Markdown in HTML.
