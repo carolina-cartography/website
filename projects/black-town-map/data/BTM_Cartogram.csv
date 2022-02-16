@@ -1,0 +1,56 @@
+ST_ABBRV,STATE_LONG,X,Y,TOWNS
+AK,Alaska,0,1,1
+BC,British Columbia,0,2,2
+WA,Washington,0,3,2
+OR,Oregon,0,4,1
+CA,California,0,5,15
+BCN,Baja California,0,6,1
+HI,Hawaii,0,8,0
+ID,Idaho,1,3,1
+NV,Nevada,1,4,0
+UT,Utah,1,5,0
+AZ,Arizona,1,6,2
+MT,Montana,2,3,0
+WY,Wyoming,2,4,1
+CO,Colorado,2,5,1
+NM,New Mexico,2,6,4
+ND,North Dakota,3,3,1
+SD,South Dakota,3,4,1
+NE,Nebraska,3,5,2
+KS,Kansas,3,6,17
+OK,Oklahoma,3,7,56
+TX,Texas,3,8,23
+MN,Minnesota,4,3,0
+IA,Iowa,4,4,3
+MO,Missouri,4,5,5
+AR,Arkansas,4,6,5
+LA,Louisiana,4,7,8
+IL,Illinois,5,3,7
+IN,Indiana,5,4,30
+KY,Kentucky,5,5,9
+TN,Tennessee,5,6,3
+MS,Mississippi,5,7,5
+ONT,Ontario,6,1,3
+WI,Wisconsin,6,2,3
+MI,Michigan,6,3,2
+OH,Ohio,6,4,21
+WV,West Virginia,6,5,2
+AL,Alabama,6,7,9
+PA,Pennsylvania,7,3,0
+VA,Virginia,7,4,4
+NC,North Carolina,7,5,25
+SC,South Carolina,7,6,6
+GA,Georgia,7,7,3
+FL,Florida,7,8,17
+NY,New York,8,2,7
+NJ,New Jersey,8,3,18
+MD,Maryland,8,4,11
+PR,Puerto Rico,8,8,0
+VT,Vermont,8,1,0
+ME,Maine,9,1,4
+MA,Massachusetts,9,2,1
+CT,Connecticut,9,3,0
+DE,Delaware,9,4,5
+NS,Nova Scotia,10,1,1
+NH,New Hampshire,10,2,1
+RI,Rhode Island,10,4,0

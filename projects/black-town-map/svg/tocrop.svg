@@ -1,0 +1,29 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="80 200 130 205" xml:space="preserve" 
+   onload="makeDraggable(evt)">
+   <!-- <xml version="1.0" encoding="utf-8"?> -->
+
+<style type="text/css">
+	.st1{opacity:0.94;fill:#0B0506;}
+	.st2{fill:#0B0506;}
+	.st3{clip-path:url(#SVGID_2_);fill:none;stroke:#0B0506;stroke-width:0.72;stroke-miterlimit:10;}
+  .draggable{cursor: move;}
+  .transparent{stroke:none; fill:none; pointer-events:visible}
+</style>
+<g id="elG" class="draggable" >
+	<rect x="137" y="203.3" class="transparent draggable" width="11" height="10.4"/>
+	<path class="st1 draggable" d="M139.7,209.8c0.9-0.8,1.9-1.7,2.8-2.5c0.9,0.8,1.9,1.7,2.8,2.5c0,1.2,0,2.4,0,3.6c0,0,0,0,0,0.1c0,0,0,0,0,0
+		c0,0,0,0-0.1,0c0,0,0,0-0.1,0c-0.6,0-1.2,0-1.7,0c0-0.5,0-1.1,0-1.6c0,0,0-0.1,0-0.1c0,0,0,0-0.1,0c0,0-0.1,0-0.1,0
+		c-0.5,0-1,0-1.5,0c0,0-0.1,0-0.1,0l-0.1,0.1c0,0,0,1.6,0,1.6c-0.6,0-1.2,0-1.8,0c0,0-0.1,0-0.1,0c0,0,0,0,0,0c0,0,0,0,0-0.1
+		C139.7,212.1,139.7,210.9,139.7,209.8z"/>
+	<path class="st2 draggable" d="M137.8,209.7c0,0.3,0,0.5,0,0.8c0.1,0.1,0.2,0.2,0.2,0.3c1.5-1.7,3-3.4,4.5-5.1c1.5,1.7,3,3.4,4.5,5.1
+		c0.1-0.1,0.2-0.2,0.3-0.3c0-0.2,0-0.5,0-0.7c-1.6-1.8-3.2-3.6-4.8-5.4C140.9,206.1,139.4,207.9,137.8,209.7z"/>
+	<path class="st2 draggable" d="M139.8,204.9c0,0.6,0,1.2,0,1.8c0.4-0.4,0.8-0.7,1.2-1.1c0-0.2,0-0.5,0-0.7
+		C140.6,204.9,140.2,204.9,139.8,204.9z"/>
+</g>
+<g>
+	<line class="st3" x1="89.2" y1="213.9" x2="196" y2="213.9"/>
+	<circle class="st3" cx="87.6" cy="213.9" r="1.7"/>
+	<circle class="st3" cx="197.7" cy="213.9" r="1.7"/>
+</g>
+</svg>

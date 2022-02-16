@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Loop Rect</title>
+<script src="../js/createSVG.js"></script>
+<script src="../data/BTM_Cartogram.js"></script>
+
+</head>
+<body>
+<!-- <div id= "test1" style="background-color: burlywood; position: absolute; left: 50%; width: 100%; height: 300px;"></div> -->
+<!-- <h3>7 x 7 squares</h3> -->
+<div id= "test" style="background-color: gray; position: absolute; width: 600px; height: 600px;"></div>
+
+<script>
+    cartogram.data.state = dataCarto.ST_ABBRV; // data with the State Abbreviations
+    cartogram.data.value = dataCarto.TOWNS; // data with the number of towns
+    cartogram.data.x = dataCarto.X; // data with the x coordinate
+    cartogram.data.y = dataCarto.Y; // data with the y coordinate 
+    cartogram.colorArray = ['black', 'green', 'blue'], //set the color in increasing value
+    cartogram.colorClass = [0,10,100]; // set value of color less or equal than
+    cartogram.xy = [11,9]
+    cartogram.border = 15
+    cartogram.size = 40 // size of the rectangles
+    cartogram.makeRectangle('test')
+</script>
+
+</body>
+</html>

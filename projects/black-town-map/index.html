@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Expletus+Sans:wght@700&family=Nobile:ital,wght@0,700;1,700&family=Signika+Negative:wght@700&family=Signika:wght@400;700&family=Viga&display=swap" rel="stylesheet">
+        <title>BTM</title>
+</head>
+<body>
+
+<div id="allContainer">
+    <div id="timgContainer">
+    <div id="tContainer">
+
+        <div class="tDiv"><span class="tP">BLACK</span> </div>
+        <div class="tDiv"><span class="tP">TOWN</span> </div>
+        <div class="tDiv"><span class="tP">MAP</span> </div>
+
+    </div>
+    <div id="imgContainer" >
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+              <img src="./images/img_New_Philadelphia_Illinois.jpeg" style="width:100%">
+              <div class="text">New Philadelphia, IL</div>
+            </div>
+            
+            <div class="mySlides fade">
+              <div class="numbertext"></div>
+              <img src="./images/img_NewPhilly_IL_1872.png" style="width:100%">
+              <div class="text">New Philadelphia, IL</div>
+            </div>
+            
+            <div class="mySlides fade">
+              <div class="numbertext"></div>
+              <img src="./images/img_wormsley_future_black_people.jpg" style="width:100%">
+              <div class="text">Wormsley - "Black People are in the Future"</div>
+            </div>
+            
+            </div>
+            <!-- <br> -->
+            
+            <!-- <div style="text-align:center">
+              <span class="dot"></span> 
+              <span class="dot"></span> 
+              <span class="dot"></span> 
+            </div> -->
+            
+    </div>
+
+    <div id="infoContainer">
+        <div class="infoButton"><p>About</p></div>
+        <div class="infoButton"><p>Methods</p></div>
+        <div class="infoButton"><p>PDF</p></div>
+        <div class="infoButton"><p>Contact</p></div>
+
+    </div>
+</div>
+</div>
+    <!-- t - Title class divs  -->
+
+</body>
+<script>
+    var slideIndex = 0;
+    showSlides();
+    
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+    //   var dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+    //   for (i = 0; i < dots.length; i++) {
+    //     // dots[i].className = dots[i].className.replace(" active", "");
+    //   }
+      slides[slideIndex-1].style.display = "block";  
+    //   dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 4000); // Change image every 4 seconds
+    }
+    </script>
+</html>
