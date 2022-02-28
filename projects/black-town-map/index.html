@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <link rel="stylesheet" href="./css/styleall.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./js/flickity/flickity.css">  
+      
+    <title>Mapping Black Towns</title>
+</head>
+
+<body>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
+    <!-- intro -->
+<div id ='allPage'>
+<div id ='firstPage'>
+<div id="allContainer">
+    <div id="timgContainer">
+    <div id="tContainer">
+
+      <div class="tDiv"><span class="tP">BLACK</span> </div>
+      <div class="tDiv"><span class="tP">TOWN</span> </div>
+      <div class="tDiv"><span class="tP">MAP</span> </div>
+
+    </div>
+    <div id="imgContainer" >
+        <!-- <div class="slideshow-container"> -->
+          <div class="main-carousel" data-flickity='{ "autoPlay": 3000, "pauseAutoPlayOnHover": false }'>  
+            </div>
+            
+            </div>
+            
+    </div>
+    <div>
+    <div id="infoImage" width="100%"></div>
+  <!-- thin div -->
+    <div id="infoContainerAAG">
+      <!-- infoButton -->
+        <div class="tDiv tSmall" onclick="document.getElementById('titleCarto').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;"> Maps</div>
+        <div class="tDiv tSmall" onclick="window.open('AAG2022_Flyer_final.jpeg', 'Flyer');" style="cursor: pointer;">AAG 2022</div>
+        <div class="tDiv tSmall" onclick="window.open('about.html', 'About')" style="cursor: pointer;">About</div>
+        <div class="tDiv tSmall" onclick="window.open('contact.html', 'Contact')" style="cursor: pointer;">Contact</div>
+
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+</div>
+<!-- end intro 
+start cartogram
+-->
+<div id="firstTransition"></div>
+<div id = 'secondPage'>
+<div id= "test" style="background-color: #212326; position: absolute;" ></div>
+<div id= "cartoInfo" style="background-color: #212326; position: absolute; ">
+<div id="titleCarto"></div>
+<div id="subTitleCarto"></div>
+</div>
+<div id= "cartoList" style="background-color:  #212326; position: absolute;width: 600px"></div>
+</div>
+<div id="secondTransition"></div>
+<div id = 'thirdPage'>
+
+  <div id="largeDiv">
+    <div id="titleDiv">
+      <div id="daTitle">Towns established before:</div>
+      </div>
+      <div id="daMap"></div>
+      <div id="container">
+        <!-- "83.16 202.38 119.97 20.94" -->
+        <div id="svgDiv">
+        <svg version="1.1" id="slider" xmlns="http://www.w3.org/2000/svg" 
+        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" 
+        xml:space="preserve" onload="makeDraggable(evt)" 
+        viewBox="60 196.38 220 26.94">   <!-- <xml version="1.0" encoding="utf-8"?> --><style type="text/css">	.st1{opacity:0.94;fill:#0B0506;}	.st2{fill:#0B0506;}	.st3{clip-path:url(#SVGID_2_);fill:none;stroke:#0B0506;stroke-width:0.72;stroke-miterlimit:10;}  .draggable{cursor: move;}  .transparent{stroke:none; fill:none; pointer-events:visible}</style>
+          <script type="text/javascript"><![CDATA[
+                    var sValue = 1690; 
+                    var x = undefined
+                    var inc = 1;
+                    var unc = 1
+                    var bmousedown = 0;
+  
+                   function makeDraggable(evt) {
+                     var svg = evt.target;
+                     svg.addEventListener('mousedown', startDrag);
+                     svg.addEventListener('mousemove', drag);
+                     svg.addEventListener('mouseup', endDrag);
+                     svg.addEventListener('mouseleave', endDrag);
+                     svg.addEventListener('touchstart', startDrag);
+                     svg.addEventListener('touchmove', drag);
+                     svg.addEventListener('touchend', endDrag);
+                     svg.addEventListener('touchleave', endDrag);
+                     svg.addEventListener('touchcancel', endDrag);
+             
+                     var selectedElement, offset, transform,
+                         bbox, minX, maxX, minY, maxY, confined;
+             
+                     var boundaryX1 = -50;
+                     var boundaryX2 = 50;
+  
+                    
+             
+                     function getMousePosition(evt) {
+                       var CTM = svg.getScreenCTM();
+                       if (evt.touches) { evt = evt.touches[0]; }
+                       return {
+                         x: (evt.clientX - CTM.e) / CTM.a,
+                         y: (evt.clientY - CTM.f) / CTM.d
+                       };
+                     }
+  
+                     ///function for the incorporated/un button 
+                     function iBot(evt){
+                       x = evt
+                      if (evt.target.classList.contains('incorporated'))
+                      { 
+                        if (inc == 0)
+                        { document.querySelectorAll('.fullInc').forEach(e=>{
+                          e.style.fill = '#464545';//
+                          e.style.stroke = 'none';
+                        })
+                          inc = 1
+                          decadeLessThan(sValue)
+                          return 
+                        }
+                        if (inc == 1) {
+                          document.querySelectorAll('.fullInc').forEach(e=>{
+                            e.style.fill = 'none';//
+                            e.style.stroke = '#464545';
+                          })
+                      //evt.target.style.fill = 'none'
+                      //evt.target.style.stroke = '#000000'
+                      inc = 0
+                      decadeLessThan(sValue, 'incOff')
+                      return }
+                       
+                      }
+                      if (evt.target.classList.contains('unincorporated'))
+                      {
+                        if (unc == 0)
+                        { document.querySelectorAll('.fullUnc').forEach(e=>{
+                          e.style.fill = '#301f7e';//
+                          e.style.stroke = 'none';
+                        })
+                          //evt.target.style.fill = '#301f7e';
+                          //evt.target.style.stroke = 'none';
+                          unc = 1
+                          decadeLessThan(sValue)
+                          return
+                        }
+                        if (unc == 1) {
+                          document.querySelectorAll('.fullUnc').forEach(e=>{
+                            e.style.fill = 'none';//
+                            e.style.stroke = 'black';
+                          })
+                      //evt.target.style.fill = 'none'
+                      //evt.target.style.stroke = 'black'
+                      unc = 0
+                      decadeLessThan(sValue, 'uncOff')
+                      return }
+                    
+                      }
+  
+                     }
+  
+             
+                     function startDrag(evt) {
+                      
+                      if (evt.target.classList.contains('clickable') & bmousedown == 0 & evt.type == "mousedown") 
+                      {bmousedown = 1; 
+                        if (evt.target.classList.contains('play'))
+                        {playTimer('start')}
+                        if (evt.target.classList.contains('pause'))
+                        {playTimer('pause')}
+                        iBot(evt)}
+                       if (evt.target.classList.contains('draggable')) {
+                         selectedElement = evt.target.parentElement;
+                         offset = getMousePosition(evt);
+                        playTimer('pause')
+                        
+                         // Make sure the first transform on the element is a translate transform
+                         var transforms = selectedElement.transform.baseVal;
+                         if (transforms.length === 0 || transforms.getItem(0).type !== SVGTransform.SVG_TRANSFORM_TRANSLATE) {
+                           // Create an transform that translates by (0, 0)
+                           var translate = svg.createSVGTransform();
+                           translate.setTranslate(0, 0);
+                           selectedElement.transform.baseVal.insertItemBefore(translate, 0);
+                         }
+             
+                         // Get initial translation
+                         transform = transforms.getItem(0);
+                         offset.x -= transform.matrix.e;
+                         offset.y -= transform.matrix.f;
+                         
+             
+                         confined = evt.target.classList.contains('confine');
+                         if (confined) {
+                             bbox = selectedElement.getBBox();
+                             minX = boundaryX1 - bbox.x;
+                             maxX = boundaryX2 - bbox.x - bbox.width;
+                         }
+                       }
+                     }
+             
+                     function drag(evt) {
+                        bmousedown = 0;
+                       if (selectedElement) {
+                         evt.preventDefault();
+             
+                         var coord = getMousePosition(evt);
+                         var dx = coord.x - offset.x;
+                         <!-- dx = Math.round(dx) -->
+                         <!-- this allows the button to stay inside the bounds or to go to the edge if you drag very fast -->
+                         if(dx<-50){dx = -50} 
+                         if(dx>50){dx = 50}
+                         if(dx=>-50 & dx<=50){
+                         transform.setTranslate(dx, 0)};
+                          scrollerValue(dx);
+                       }
+                     }
+             
+                     function endDrag(evt) {
+                       selectedElement = false;
+                       bmousedown = 0;
+                     }
+                   }
+                 ]]> </script>
+                 <g transform= 'translate(-8 4)'>
+          <g id="elG" class="draggable transparent">	<rect class="draggable" x="123" y="195.3"  width="25" height="27.4" ></rect>	<path class="st1 draggable" d="M139.7,209.8c0.9-0.8,1.9-1.7,2.8-2.5c0.9,0.8,1.9,1.7,2.8,2.5c0,1.2,0,2.4,0,3.6c0,0,0,0,0,0.1c0,0,0,0,0,0   c0,0,0,0-0.1,0c0,0,0,0-0.1,0c-0.6,0-1.2,0-1.7,0c0-0.5,0-1.1,0-1.6c0,0,0-0.1,0-0.1c0,0,0,0-0.1,0c0,0-0.1,0-0.1,0   c-0.5,0-1,0-1.5,0c0,0-0.1,0-0.1,0l-0.1,0.1c0,0,0,1.6,0,1.6c-0.6,0-1.2,0-1.8,0c0,0-0.1,0-0.1,0c0,0,0,0,0,0c0,0,0,0,0-0.1   C139.7,212.1,139.7,210.9,139.7,209.8z"></path>	
+                    <path class="st2 draggable" d="M137.8,209.7c0,0.3,0,0.5,0,0.8c0.1,0.1,0.2,0.2,0.2,0.3c1.5-1.7,3-3.4,4.5-5.1c1.5,1.7,3,3.4,4.5,5.1   c0.1-0.1,0.2-0.2,0.3-0.3c0-0.2,0-0.5,0-0.7c-1.6-1.8-3.2-3.6-4.8-5.4C140.9,206.1,139.4,207.9,137.8,209.7z"></path>	
+                    <path class="st2 draggable" d="M139.8,204.9c0,0.6,0,1.2,0,1.8c0.4-0.4,0.8-0.7,1.2-1.1c0-0.2,0-0.5,0-0.7   C140.6,204.9,140.2,204.9,139.8,204.9z"></path>
+                  </g>
+                  <g id="pauseBot" class="clickable pause" transform= 'translate(2 0)'>
+                      <rect class="clickable pause transparent" x="192" y="193"  width="15" height="25"></rect>
+                      <line class="clickable pause wideLine" x1="197" y1="200" x2="197" y2="208"></line>
+                      <line class="clickable pause wideLine" x1="200" y1="200" x2="200" y2="208"></line>
+                    </g>
+                    <g id="playBot" class="clickable" transform= 'translate(-2 0)'>
+                      <rect class="clickable play transparent" x="70" y="195" width="25" height="25"></rect>
+                      <polygon id="oPlayBot" class="clickable play full" points="82,200, 89,204, 82,208"></polygon>
+                      <!-- <polygon id="iPlayBot" class="clickable play" points="83,202, 87,204, 83,206"></polygon> -->
+                    </g>
+                    <!-- make the finger pointer -->
+                    <g id="sliderLineTicks">
+                    <line id="sliderLine" class="st3" x1="92" y1="204" x2="193" y2="204"></line>
+                  </g>  
+                  </g>
+                    <g transform= 'translate(0 -4)'>
+                        <!-- <circle class="st3" cx="87.6" cy="213.9" r="1.7"></circle>	 -->
+                        <!-- <circle class="st3" cx="197.7" cy="213.9" r="1.7"></circle> -->
+                        <!-- <text id="sliderText" x="104" y="222" font-size=".5em">Towns established before: </text> -->
+                        
+                        <circle id="iBot" class="clickable incorporated fullInc" cx="210" cy="208" r="4" onmousdown='iBot(evt)'></circle>
+                        <rect  class="clickable incorporated transparent" x="200" y="192" width="80" height="20" onmousdown='iBot(evt)'></rect>
+  
+                        <circle id="uBot" class="clickable unincorporated fullUnc" cx="210" cy="219" r="4"></circle>
+                        <rect  class="clickable unincorporated transparent" x="200" y="213" width="80" height="14" onmousdown='iBot(evt)'></rect>
+
+                        <text id="iText" class="clickable incorporated" x="215" y="210" font-size=".4em" >Incorporated</text>
+                        <text id="uText" class="clickable unincorporated" x="215" y="221" font-size=".4em">Unincorporated</text>
+  
+                      </g></svg>
+                    </div>
+                
+    </div>
+    <div id="container"></div>
+  <!-- end largeDiv -->
+  <div id="infoContainer" >
+    <div id="infoName" class="infoTab"></div>
+    <div id="infoState" class="infoTab"></div>
+    <!-- <div id="infoYearInc" class="infoTab"></div> -->
+    <div id="infoYearEst" class="infoTab"></div>
+    <div id="infoInc" class="infoTab"></div>
+  
+    <!-- <div id="infoExisting" class="infoTab"></div> -->
+    <div id="infoSource" class="infoTab"></div>
+  
+  </div>
+</div> 
+
+
+</div>
+</div>
+
+<!-- end cartogram 
+start intro
+-->
+<script src="./js/flickity/flickity.pkgd.min.js"></script>
+
+<!-- <script src="./js/introPage.js"></script> -->
+<script src="./data/BT.js"></script>
+<script src="./js/createSVG.js"></script>
+<script src="./data/BTM_Cartogram.js"></script>
+<script src="./js/makeList.js"></script>
+
+  <script src="../js/removeTileLines.js"></script>
+<script src="./js/slideshow.js"></script>
+<script>// script related to the first page
+// sAnim.showSlides(); // function to animate the slides
+</script>
+<script> 
+function initSlides(address){
+  var newAddress = './images/' + address;
+  var mC = document.getElementsByClassName('main-carousel')[0]
+  var newDiv = document.createElement("div");
+      newDiv.setAttribute('class','carousel-cell')
+      var newImg = document.createElement("img");
+      newImg.setAttribute('class','cimage-cell')
+      newImg.setAttribute('src',newAddress)
+      newDiv.appendChild(newImg)
+      mC.appendChild(newDiv)
+      }
+  daSlides.forEach(e =>{
+    initSlides(e.filename)
+  })
+  // initSlides()
+  var flkty = new Flickity( '.main-carousel', {
+  on: {
+    change: function( index ) {
+      document.getElementById('infoImage').innerHTML = daSlides[index].caption  // console.log( 'Slide changed to' + slide[index].caption );
+    },
+  }
+});
+flkty.playPlayer()
+document.getElementById('infoImage').innerHTML = daSlides[0].caption  // console.log( 'Slide changed to' + slide[index].caption );
+
+cartogram.data.state = dataCarto.ST_ABBRV; // data with the State Abbreviations
+    cartogram.data.value = dataCarto.TOWNS; // data with the number of towns
+    cartogram.data.x = dataCarto.X; // data with the x coordinate
+    cartogram.data.y = dataCarto.Y; // data with the y coordinate 
+    cartogram.colorArray = ['#969696','#6F8CA6','#3C5973','#142740','#081526'], //set the color in increasing value // somethink is wrong with Oklahoma
+    cartogram.colorClass = [0,9,19,30,56]; // set value of color less or equal than
+    cartogram.xy = [11,7]
+    cartogram.xBorder = 3
+    cartogram.yBorder = 10
+
+    var lP = ''; // landscape or portrait
+
+    function onResize(divID, infoID, listID) {
+        // alert('resize_v_width')
+        var daImages = document.getElementsByClassName('cimage') //TagName('img')// select images from slider
+        var lPages = 2.6
+        var pPages = 3;
+        var bottomPage1 = window.innerHeight//document.getElementById('firstTransition').getBoundingClientRect().bottom + 30 //
+        var bottomPage2 = window.innerHeight * 2
+        var bottomPage3 = lPages * window.innerHeight
+        var bottomPage2Portrait = Math.trunc(window.innerHeight*1.8)
+        var bottomPage3Portrait = pPages * window.innerHeight
+
+        var daDiv = document.getElementById(divID)
+        var infoDIV = document.getElementById(infoID)
+        var listDIV = document.getElementById(listID)
+
+        daDiv.innerHTML = '';
+        infoDIV.innerHTML = '';
+        listDIV.innerHTML = '';
+    
+        // if (3*window.innerHeight < 2.5*window.innerWidth) 
+        if (window.innerHeight < window.innerWidth) 
+        {
+            lP = 'landscape' // console.log('landscape')
+            for (var i = 0; i < daImages.length; i++) {daImages[i].style.width = ''; daImages[i].style.height = '100%' }
+            
+            document.getElementById('imgContainer').style.position = 'absolute'
+            document.getElementById('imgContainer').style.top = '0%'
+            document.getElementById('imgContainer').style.left = '34%'
+            document.getElementById('imgContainer').style.height = '80%'
+            document.getElementById('imgContainer').style.width = '66%'
+            
+            document.getElementById('tContainer').style.width = '34%'
+            document.getElementById('tContainer').style.left = '0%'
+            document.getElementById('tContainer').style.height = '100%'
+            document.getElementById('tContainer').style.flexDirection = 'column'
+            document.getElementById('secondPage').style.top = bottomPage1 + '.px'
+            document.getElementById('thirdPage').style.top = '205%' //bottomPage2 + '.px'
+            document.getElementById('thirdPage').style.height = window.innerHeight + 'px' //bottomPage2 + '.px'
+
+            // bottomPage1 + 'px'
+
+            daDiv.style.height = window.innerHeight + 'px';
+            daDiv.style.width = window.innerHeight * 1.5 + 'px'
+            daDiv.style.left = (window.innerWidth - (window.innerHeight * 1.5)) + 'px'
+            daDiv.style.top = '0px' //bottomPage1 + 'px'
+            // if you want the cartogram in the left change this
+
+            infoDIV.style.height = window.innerHeight*.3 + 'px'
+            infoDIV.style.width = (window.innerWidth - (window.innerHeight * 1.5)) + 'px'
+            infoDIV.style.top =  '0px'//bottomPage1 + 'px'
+            // infoDIV.style.left = '0px' // if you want the cartogram in the left change this
+            // infoDIV.style.left = window.innerHeight * 1.2 + 'px'
+            listDIV.style.height = window.innerHeight*.7 + 'px'
+            listDIV.style.width = (window.innerWidth - (window.innerHeight * 1.5)) + 'px'
+            listDIV.style.top = (window.innerHeight/3) + 'px' //120px'  //window.innerHeight*.3 + 'px'
+            // listDIV.style.left = '0px'
+
+          ///map resizing 
+          document.getElementById('largeDiv').style.width = window.innerWidth *.65 + 'px'
+          document.getElementById('largeDiv').style.height = window.innerHeight + 'px'
+          document.getElementById('infoContainer').style.top = '10px'
+          document.getElementById('infoContainer').style.left = document.getElementById('largeDiv').getBoundingClientRect().right + 'px'
+          document.getElementById('infoContainer').style.width = '50%'
+
+          document.getElementById('largeDiv').style.top = bottomPage2 + '.px'
+
+
+       
+        } else {
+            // console.log('portrait')
+            lP = 'portrait' 
+           document.getElementById('secondPage').style.height = (window.innerHeight*.67) + 'px'
+           document.getElementById('secondPage').style.top = bottomPage1 + '.px'
+           document.getElementById('imgContainer').style.position = 'absolute'
+
+            
+            document.getElementById('tContainer').style.width = '100%'
+            document.getElementById('tContainer').style.top = '0%'
+            document.getElementById('tContainer').style.height = ''
+            document.getElementById('tContainer').style.flexDirection = 'row'
+
+            document.getElementById('imgContainer').style.top = ''
+            document.getElementById('imgContainer').style.left = '0%'
+            document.getElementById('imgContainer').style.height = '70%'
+            document.getElementById('imgContainer').style.width = '100%'
+
+
+            for (var i = 0; i < daImages.length; i++) {daImages[i].style.width = '100%'; daImages[i].style.height = '' }
+            var firstLine = (.25/(innerHeight/innerWidth))*(window.innerHeight - (window.innerWidth * .667))
+
+            var secondLine = firstLine + (window.innerWidth * .667)
+            infoDIV.style.width = window.innerWidth + 'px'
+            infoDIV.style.height = firstLine + 'px'
+            infoDIV.style.top = '0px'
+            infoDIV.style.left = '0px'
+
+            daDiv.style.width = window.innerWidth + 'px';
+            daDiv.style.height = window.innerWidth * .667 + 'px'         
+            daDiv.style.top = firstLine + 'px'
+            daDiv.style.left = '0px'
+
+
+            listDIV.style.height = window.innerHeight/3 + 'px' //(window.innerHeight - secondLine) + 'px'
+            listDIV.style.width = window.innerWidth + 'px'
+            listDIV.style.top = secondLine + 'px'
+            listDIV.style.left = '0px'
+
+            ///map resizing portrait
+            document.getElementById('thirdPage').style.top =  bottomPage2Portrait + 'px'
+            document.getElementById('thirdPage').style.height =  window.innerHeight + 'px'
+
+            document.getElementById('largeDiv').style.width = '100%'
+            document.getElementById('largeDiv').style.height = '100%'
+            document.getElementById('infoContainer').style.top = window.innerHeight/1.6 + 'px'//document.getElementById('container').getBoundingClientRect().bottom + 'px'
+            document.getElementById('infoContainer').style.left = '0px'
+            document.getElementById('infoContainer').style.width = '100%'
+
+
+            }
+
+            cartogram.size = document.getElementById(divID).getBoundingClientRect().width * .085 
+            cartogram.fontSize = cartogram.size/3 //'20'//'20'
+            cartogram.makeRectangle(divID)
+            mL.fontSize = cartogram.fontSize
+            mL.makeInfoArray(mL.state, BT, 'State', 'Town Name')
+            // console.log(listID)
+            mL.make(infoID, listID)
+          }
+
+/////third page scripts s
+
+          function fillInfo(index){
+          var existing = BT.features[index].properties["Existing"]
+          if (existing == 'No') {existing = ' *no longer existing'}
+          else {existing = ''}
+          var yInc = BT.features[index].properties["YearInc"]
+          var incorporated = BT.features[index].properties['Incorporated']
+          var yearInc = '';
+          if (incorporated == 'No') {incorporated = 'Unincorporated'}
+          else {incorporated = 'Incorporated';
+            yearInc = BT.features[index].properties['YearInc']
+            if (yearInc == 'N/A') {yearInc = ''} else {yearInc = ' on year: ' + yearInc}
+            }
+          document.getElementById("infoName").innerHTML = "Town Name: " + BT.features[index].properties["Town Name"]
+          document.getElementById("infoState").innerHTML = "State: " + BT.features[index].properties["State"]
+          document.getElementById("infoYearEst").innerHTML = "Year Established: " + BT.features[index].properties["YearEst"] + existing
+          document.getElementById("infoSource").innerHTML = "Source: " + BT.features[index].properties["Source1"] 
+          document.getElementById("infoInc").innerHTML = incorporated + yearInc
+        //TODO MAKE HYPERLINK TO HTTP AND HTTPS SOURCES. 
+        }
+
+        function scrollerValue(dx){
+            var decadeNum = ((Math.trunc((dx+50)/3.03) * 10) + 1690)
+            document.getElementById('daTitle').innerHTML = "Towns established before: " 
+            + decadeNum
+            decadeLessThan(decadeNum)
+            sValue = decadeNum
+        }
+
+// });
+var origWidth = window.innerWidth
+window.addEventListener("resize", function(event) {
+       if (Math.abs(origWidth-(window.innerWidth)) > 20) {
+        origWidth = window.innerWidth
+    onResize('test', 'cartoInfo', 'cartoList')
+    resizeSlide()}
+});
+onResize('test', 'cartoInfo', 'cartoList')
+
+function resizeSlide() {
+  document.getElementsByClassName('flickity-viewport')[0].style.height = document.getElementById('imgContainer').getBoundingClientRect().height + 'px'
+
+}
+
+//Leaflet
+
+        const svgIconLarge = L.divIcon({
+  html: `<svg class="mySVGicon" aria-labelledby="locationIconTitle" color="#000000" fill="none" height="48px" role="img" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1" viewBox="0 0 24 24" width="48px" xmlns="http://www.w3.org/2000/svg"><title id="locationIconTitle"/><path id="svgIconTag" d="M12,21 C16,16.8 18,12.8 18,9 C18,5.6862915 15.3137085,3 12,3 C8.6862915,3 6,5.6862915 6,9 C6,12.8 8,16.8 12,21 Z"/><circle id="svgIconCircle" cx="12" cy="9" r="1"/></svg>`,  className: "",
+  iconSize: [48, 48], // [10I tried changing these values to make the icons smaller but it did not change the size.
+  iconAnchor: [24, 46],
+});
+
+const svgIconMedium = L.divIcon({
+  html: `<svg class="mySVGicon" aria-labelledby="locationIconTitle" color="#000000" fill="none" height="24px" role="img" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1" viewBox="0 0 24 24" width="48px" xmlns="http://www.w3.org/2000/svg"><title id="locationIconTitle"/><path id="svgIconTag" d="M12,21 C16,16.8 18,12.8 18,9 C18,5.6862915 15.3137085,3 12,3 C8.6862915,3 6,5.6862915 6,9 C6,12.8 8,16.8 12,21 Z"/><circle id="svgIconCircle" cx="12" cy="9" r="1"/></svg>`,  className: "",
+  iconSize: [24, 24], // [10I tried changing these values to make the icons smaller but it did not change the size.
+  iconAnchor: [24, 23],
+});
+
+const svgIcon = L.divIcon({
+  html: `<svg class="mySVGicon" aria-labelledby="locationIconTitle" color="#000000" fill="none" height="12px" role="img" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1" viewBox="0 0 24 24" width="48px" xmlns="http://www.w3.org/2000/svg"><title id="locationIconTitle"/><path id="svgIconTag" d="M12,21 C16,16.8 18,12.8 18,9 C18,5.6862915 15.3137085,3 12,3 C8.6862915,3 6,5.6862915 6,9 C6,12.8 8,16.8 12,21 Z"/><circle id="svgIconCircle" cx="12" cy="9" r="1"/></svg>`,  className: "",
+  iconSize: [12, 12], // [10I tried changing these values to make the icons smaller but it did not change the size.
+  iconAnchor: [24, 12],
+});
+// this is to solve a bug in leaflet that depending on the screen the map may be shifted
+      var hasTouchedMap = 0
+      var mapCenter = [39.5, -100]
+      var mapCenterLandscape = [39.5, -77]
+
+if (window.innerHeight/window.innerWidth < 1) {
+  var map = L.map('daMap', { attributionControl:false }).setView(mapCenterLandscape, 3);      
+} 
+else {
+  var map = L.map('daMap', { attributionControl:false }).setView(mapCenter, 3);      
+
+}
+      var daTile = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', 
+        {maxZoom: 19,  })
+        daTile.addTo(map)
+        var markerArray = []
+        function markerOnClick(e){
+          fillInfo(e.target.index)
+          // console.log(BT.features[e.target.index].properties["Town Name"])
+        }
+
+        function removeAllMarkers(markerArray){
+          markerArray.forEach(e=>{e.remove()})
+        }
+
+        function minMaxDecades() {
+          var decades = []
+          BT.features.forEach(e=>{decades.push(parseInt(e.properties.DecadeEst.split('-')[0]))})
+          minMax = {min: Math.min.apply(null,decades), max:Math.max.apply(null,decades)}
+          return minMax
+        }        
+        // the min 1690 and max 1960 however I will make the scroller go from 1690 to 2020
+        var marker = undefined;
+        var markerDecadeArrayINC = []
+        var markerDecadeArrayUNC = []
+        var currentDecade = 1690;
+        function decadeLessThan(decade, opt){
+          currentDecade = decade;
+          // console.log(currentDecade,"opt",opt)
+          
+          if (sValue == decade)
+          { 
+            if (opt == "incOff")
+            { removeAllMarkers(markerDecadeArrayINC)
+            return}
+            if (opt == "uncOff")
+            { removeAllMarkers(markerDecadeArrayUNC)
+            return}
+          }
+          removeAllMarkers(markerDecadeArrayINC)
+          removeAllMarkers(markerDecadeArrayUNC)
+          markerDecadeArrayINC = []
+          markerDecadeArrayUNC = []
+          var d = 0
+          BT.features.forEach((e, index) =>{
+            if (e.properties.DecadeEst == null) {d = 1900} else {
+             d = parseInt(e.properties.DecadeEst.split('-')[0])}
+            if(d<decade){
+              // var marker = L.circleMarker([e.geometry.coordinates[1], e.geometry.coordinates[0]])
+              var svgIconZoom = svgIconLarge
+              if (map.getZoom() < 8){
+                svgIconZoom = svgIconMedium
+              }
+              if (map.getZoom() < 6){
+                svgIconZoom = svgIcon
+              }
+              
+              var marker = L.marker([e.geometry.coordinates[1], e.geometry.coordinates[0]], { icon: svgIconZoom })//.addTo(map);
+              // marker.properies.name = "x";
+              
+              marker.on("click", markerOnClick)
+              marker.on("mouseover", markerOnClick)
+              marker.index = index;
+              // marker.addTo(map)
+              if (e.properties.Incorporated == "Yes" & inc==1) {
+                marker.addTo(map)
+                marker._icon.getElementsByClassName('mySVGicon')[0].style.fill = '#464545'
+                // marker._icon.getElementsByClassName('mySVGicon')[0].style.height = '5px'
+
+                // marker.options.color = 'dark blue'
+                
+                markerDecadeArrayINC.push(marker)
+                }
+              
+              else if (unc == 1){
+                marker.addTo(map)
+                marker._icon.getElementsByClassName('mySVGicon')[0].style.fill = '#301f7e'
+                // marker._icon.getElementsByClassName('mySVGicon')[0].style = '5px'
+                markerDecadeArrayUNC.push(marker)
+                  }
+
+              // You could add the pupup here using previous tutorials and decide the style too
+              // it is called a marker but it is really a circle
+    
+              
+              }
+            })
+        }
+
+  map.on('zoomstart', function(e) { 
+  decadeLessThan(currentDecade) })
+  
+  map.scrollWheelZoom.disable()
+//// end leaflet
+ 
+var makeTicks = function(lineID, geo, tickSize, minMax, tickArray, text, tsize,gap){
+  var xmlns = "http://www.w3.org/2000/svg";
+  var daLine = document.getElementById(lineID);
+  var x1 = parseFloat(daLine.getAttribute('x1'));
+  var x2 = parseFloat(daLine.getAttribute('x2'));
+  var y = parseFloat(daLine.getAttribute('y1'));
+
+  var lineLength = Math.abs(x2-x1);
+  var mM = Math.abs(minMax[0]-minMax[1])
+  var prop = lineLength/mM;
+
+  for (var i = 0; i < tickArray.length; i++){
+    if (geo == 'circle'){}
+    if (geo == 'triangle'){}
+    if (geo == 'line'){
+      var nx =  1+ x1 + prop*(tickArray[i]-minMax[0])
+      var ny = y - tickSize
+      var svgElem = document.createElementNS(xmlns, geo);
+      svgElem.setAttributeNS(null, "id", 'y_'+tickArray[i]);
+      svgElem.setAttributeNS(null, "class", 'tick');
+      svgElem.setAttributeNS(null, "x1", nx);
+      svgElem.setAttributeNS(null, "y1", y);
+      svgElem.setAttributeNS(null, "x2", nx);
+      svgElem.setAttributeNS(null, "y2", ny);
+      daLine.parentElement.appendChild(svgElem)
+      if (text='text'){
+        var textElem = document.createElementNS(xmlns, 'text');
+        textElem.setAttributeNS(null,'x', nx); 
+        textElem.setAttributeNS(null,'y', ny-gap);
+        textElem.setAttributeNS(null,'font-size', tsize);
+        textElem.setAttributeNS(null,'class', 'tickText');
+        textElem.innerHTML = tickArray[i]
+        daLine.parentElement.appendChild(textElem)
+
+      }
+    }
+}
+}
+makeTicks('sliderLine', 'line', 3, [1690,2020], [1700,1800,1900,2000], 'text',5,1)
+
+       // if -50 is 1690 and 50 is 2020
+        // but we have 33 decades 
+        // 1/3.03 = 
+        // (Math.trunc((dx+50)/3.03) * 10) + 1690
+        // 0*3.34 = 0 + 1690
+        // 1*3.34 = 
+var iValue = -50;
+document.getElementById('elG').setAttributeNS(null,'transform', 'translate(-50 0)')// make tha house be on the left
+scrollerValue(iValue)
+var playClick = 0
+var timer;
+function playTimer(ps,iV) {
+  if (ps == 'pause'){clearInterval(timer);  changePauseBot('black'); changePlayBot('lightgray'); playClick = 0; return}
+  if (playClick == 1) {return}
+  changePauseBot('lightgray')
+  changePlayBot('black')
+  playClick = 1;
+  if(iV != undefined){iValue == iV}
+else {iValue = document.getElementById('elG').transform.baseVal.getItem(0).matrix.e}
+if (ps == 'start' & iValue>49) {iValue = -50;scrollerValue(iValue);}
+var start = Date.now(); // remember start time
+timer = setInterval(function() {
+        // how much time passed from the start?
+        let timePassed = Date.now() - start;
+        if (timePassed >= 100*120) {
+          clearInterval(timer); // finish the animation after 2 seconds
+          // changePlayBot('lightgray')
+          // changePauseBot('black')
+          playClick = 0;
+          playTimer('start')
+          return;
+        }
+        iValue = iValue + 1
+        if(iValue <= 50){
+        document.getElementById('elG').setAttributeNS(null,'transform', 'translate(' + iValue + ' 0)')// make tha house be on the left
+        scrollerValue(iValue)
+        if(iValue >=50) {
+          clearInterval(timer)
+          // changePlayBot('lightgray')
+          // changePauseBot('black')
+          playClick = 0;
+          playTimer('start')
+
+       
+          }
+        }
+        // draw the animation at the moment timePassed
+        // draw(timePassed);
+
+      }, 100);
+    }
+
+function changePlayBot(a) {
+  document.querySelectorAll('.full').forEach(e=>{
+    e.style.stroke = a
+    e.style.fill = a
+    })
+  
+};
+function changePauseBot(a) {
+  document.querySelectorAll('.wideLine').forEach(e=>{
+    e.style.stroke = a
+    })
+};
+
+
+
+ var playScroll = 0;
+ playTimer('start')
+ 
+
+// repeatEvery10Second()
+
+
+// var repeat = null;
+// function repeatEvery10Second() {
+//   count = 10;
+//   repeat = setInterval(playTimer('start'), 1000);
+// }
+//  window.addEventListener("scroll", () => { 
+//   if ((scrollY/window.scrollMaxY)>.72 & playClick ==0 & playScroll == 0 & lP=='portrait'){
+//   changePauseBot('lightgray')
+//   playTimer('start')
+//   playClick = 1
+//   playScroll = 1
+// }
+// if ((scrollY/window.scrollMaxY)>.95 & playClick ==0 & playScroll == 0 & lP=='landscape'){
+//   changePauseBot('lightgray')
+//   playTimer('start')
+//   playClick = 1
+//   playScroll = 1
+// }
+
+//   if ((scrollY/window.scrollMaxY) < .5 & playScroll == 1) {
+//     playTimer('pause');  
+//    playClick = 0
+//    playScroll = 0
+// }
+//   // console.log(scrollY/window.scrollMaxY) 
+// })
+
+</script>
+</body>
+
+
+
