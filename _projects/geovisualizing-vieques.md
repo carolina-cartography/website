@@ -2,7 +2,7 @@
 title: Geovisualizing Vieques
 locale: en-US
 permalink: "/geovisualizing-vieques/"
-layout: project
+layout: vieques
 background: vieques/vieques-bg.png
 description: Visualizations of Vieques with a focus on changes in the landscape over the last 150 years. 
 gallery:

@@ -5,6 +5,9 @@ collections:
   projects:
     title: Projects
     output: true
+  vieques-exhibits:
+    title: Vieques Exhibits
+    output: true
 sass:
   style: compressed
 localization:
