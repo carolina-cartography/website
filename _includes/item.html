@@ -1,0 +1,12 @@
+<a class="item" href="{{ item.url }}">
+    <div class="bg" style="background-image:url('/assets/{{ item.background }}')"></div>
+    <div class="over-bg">
+        <h2>{{ item.title }}</h2>
+        <div></div><!-- Line break -->
+        {% if item.description %}
+        <div class="description">
+            {{ item.description | markdownify }}
+        </div>
+        {% endif %}
+    </div>
+</a>

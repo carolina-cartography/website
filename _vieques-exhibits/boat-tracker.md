@@ -2,8 +2,10 @@
 title: Boat Tracker
 locale: en-US
 permalink: "/geovisualizing-vieques/boat-tracker/"
-layout: vieques-project
+layout: project
+parent: "/geovisualizing-vieques/"
+background: vieques/boat-tracker.jpg
 description: Tracking deparatures and arrivals of the Ceiba-Vieques ferry using citizen science
 ---
 
-Sample content for the **Boat Tracker** project. Here's a [sample link](https://google.com).
+Content coming soon.
