@@ -1,10 +1,11 @@
 ---
 title: Geovisualizando Vieques
-locale: es
 permalink: "/geovisualizing-vieques/"
+locale: es
 layout: project
 background: vieques/vieques-bg.png
-description: Visualizaciones de Vieques se enfocan en los cambios en la tierra durante los 150 años pasados.
+description: Visualizaciones de Vieques se enfocan en los cambios en la tierra durante
+  los 150 años pasados.
 ---
 
 La exhibición Geovisualizando Vieques en el Museo El Fortín de Conde Mirasol expone mapas, imágenes áreas, y visualizaciones de Vieques se enfocan en los cambios en la tierra durante los 150 años pasados.
