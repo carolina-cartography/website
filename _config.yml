@@ -14,7 +14,7 @@ collections:
   vieques-exhibits:
     title: Vieques Exhibits
     output: true
-    permalink: /geovisualizing-vieques/:path/
+    permalink: "/geovisualizing-vieques/:path/"
 sass:
   style: compressed
 localization:
