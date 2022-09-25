@@ -3,11 +3,20 @@ title: Geovisualizing Vieques
 locale: en-US
 permalink: "/geovisualizing-vieques/"
 layout: project
+subcollection:
+  title: Exhibits
+  collection: vieques-exhibits
 background: vieques/vieques-bg.png
 description: Visualizations of Vieques with a focus on changes in the landscape over the last 150 years. 
 gallery:
-  # - url: vieques/vieques1.jpg
-  #   caption: Sample caption
+  - url: vieques/exhibit1.jpg
+  - url: vieques/exhibit2.jpg
+  - url: vieques/exhibit3.jpg
+  - url: vieques/exhibit4.jpg
+  - url: vieques/exhibit5.jpg
+  - url: vieques/exhibit6.jpg
+  - url: vieques/exhibit7.jpg
+  - url: vieques/exhibit8.jpg
 ---
 
 The exhibit Geovisualizing Vieques in the Museum Fortín de Conde Mirasol displays maps, aerial images, and visualizations of Vieques with a focus on changes in the landscape over the last 150 years. 

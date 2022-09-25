@@ -11,19 +11,8 @@
             <h2>{{ locale.projects }}</h2>
             {% for project in site.projects %}
                 {% if project.locale == locale.locale_id %}
-                <a href="{{ project.url }}">
-                    <div class="project-item">
-                        <div class="bg" style="background-image:url('/assets/{{ project.background }}')"></div>
-                        <div class="over-bg">
-                            <h2>{{ project.title }}</h2>
-                            {% if project.description %}
-                            <div class="description">
-                                {{ project.description | markdownify }}
-                            </div>
-                            {% endif %}
-                        </div>
-                    </div>
-                </a>
+                    {% assign item = project %}
+                    {% include item.html %}
                 {% endif %}
             {% endfor %}
         </div>

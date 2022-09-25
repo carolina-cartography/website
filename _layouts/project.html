@@ -1,20 +1,14 @@
 {% include header.html %}
 
-    <div class="section intro dark">
-        <div class="bg" style="background-image:url('/assets/{{ page.background }}')"></div>
-        <div class="gradient-bg"></div>
-        <div class="container over-bg">
+    <div class="section intro over-bg" style="background-image:url('/assets/{{ page.background }}')">
+        <div class="container">
             <h1>{{ page.title }}</h1>
-            {% if page.description %}
-            <div class="description">
-                {{ page.description | markdownify }}
-            </div>
-            {% endif %}
+            <div></div><!-- Line break-->
+            <div class="description">{{ page.description | markdownify }}</div>
         </div>
     </div>
 
-    <div class="section body dark">
-
+    <div class="section">
         <div class="container content">
             {{ page.content | markdownify }}
         </div>
@@ -31,5 +25,17 @@
         </div>
         {% endif %}
     </div>
+
+    {% if page.subcollection %}
+    <div class="section subcollection">
+        <div class="container wide">
+            <h2>{{ page.subcollection.title }}</h2>
+            {% for project in site[page.subcollection.collection] %}
+                {% assign item = project %}
+                {% include item.html %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
     
 {% include footer.html %}
