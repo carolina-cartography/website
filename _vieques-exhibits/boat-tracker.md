@@ -1,7 +1,7 @@
 ---
 title: Boat Tracker
 locale: en-US
-permalink: "/geovisualizing-vieques/boat-tracker/"
+path: "/boat-tracker/"
 layout: project
 parent: "/geovisualizing-vieques/"
 background: vieques/boat-tracker.jpg

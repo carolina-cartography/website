@@ -1,7 +1,7 @@
 ---
 title: Bomb my Backyard
 locale: en-US
-permalink: "/geovisualizing-vieques/bomb-my-backyard/"
+path: "/bomb-my-backyard/"
 layout: project
 parent: "/geovisualizing-vieques/"
 background: vieques/bomb-my-backyard.jpg
