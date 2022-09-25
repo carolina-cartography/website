@@ -2,8 +2,14 @@
 title: Carolina Cartography Collective
 timezone: America/New_York
 collections:
+  posts:
+    title: Posts
+    output: true
   projects:
     title: Projects
+    output: true
+  uploads:
+    title: Uploads
     output: true
   vieques-exhibits:
     title: Vieques Exhibits
@@ -15,4 +21,6 @@ localization:
   mode: manual
   locale: en-US
   content_dir: _locales
-  locales_set: ["en-US", "es"]
+  locales_set:
+  - en-US
+  - es

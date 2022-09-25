@@ -1,7 +1,7 @@
 ---
 title: Black Town Map
-locale: en-US
 permalink: "/black-town-map/"
+locale: en-US
 layout: project
 background: blacktownmap.png
 description: Mapping Black-founded towns and communities
