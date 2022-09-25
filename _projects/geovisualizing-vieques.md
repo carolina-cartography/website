@@ -6,7 +6,7 @@ layout: project
 subcollection:
   title: Exhibits
   collection: vieques-exhibits
-background: vieques/vieques-bg.png
+background_image: vieques/vieques-bg.png
 description: Visualizations of Vieques with a focus on changes in the landscape over
   the last 150 years.
 gallery:
